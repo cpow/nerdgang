@@ -1,8 +1,10 @@
-# Omakase Ruby styling for Rails
-inherit_gem: { rubocop-rails-omakase: rubocop.yml }
-
-# Overwrite or add rules to create your own house style
+# This project uses StandardRB for linting.
+# Run: bundle exec standardrb
 #
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+# This file exists for editor integration that expects .rubocop.yml
+require:
+  - standard
+  - standard-rails
+
+inherit_gem:
+  standard: config/ruby-3.4.yml
