@@ -1,0 +1,194 @@
+<% content_for(:title) { "Articles - News Admin" } %>
+
+<div class="mb-6">
+  <div class="flex justify-between items-center">
+    <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Articles</h1>
+    <%= link_to "Bookmarks (#{@stats[:bookmarked]})", bookmarks_admin_articles_path,
+        class: "text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+  </div>
+
+  <div class="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Total</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:total] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Unread</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:unread] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Today</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:today] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Reddit</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:reddit] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Hacker News</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:hackernews] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Bookmarked</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:bookmarked] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Last Scrape</div>
+      <div class="text-sm font-medium text-gray-900 dark:text-white"><%= @stats[:last_scrape]&.strftime("%b %d, %H:%M") || "Never" %></div>
+    </div>
+  </div>
+</div>
+
+<!-- Filters -->
+<div class="mb-4 bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
+  <%= form_with url: admin_articles_path, method: :get, class: "space-y-3" do |f| %>
+    <div class="flex flex-wrap gap-3 items-center">
+      <!-- Sort -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 dark:text-gray-400 uppercase">Sort</label>
+        <select name="sort" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" onchange="this.form.submit()">
+          <option value="recent" <%= "selected" if params[:sort].blank? || params[:sort] == "recent" %>>Recent</option>
+          <option value="hot" <%= "selected" if params[:sort] == "hot" %>>Hot</option>
+          <option value="score" <%= "selected" if params[:sort] == "score" %>>Top Score</option>
+          <option value="comments" <%= "selected" if params[:sort] == "comments" %>>Most Comments</option>
+        </select>
+      </div>
+
+      <!-- Time -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 dark:text-gray-400 uppercase">Time</label>
+        <select name="time" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" onchange="this.form.submit()">
+          <option value="">All Time</option>
+          <option value="today" <%= "selected" if params[:time] == "today" %>>Today</option>
+          <option value="3days" <%= "selected" if params[:time] == "3days" %>>Last 3 Days</option>
+          <option value="week" <%= "selected" if params[:time] == "week" %>>This Week</option>
+        </select>
+      </div>
+
+      <!-- Source -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 dark:text-gray-400 uppercase">Source</label>
+        <select name="source" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" onchange="this.form.submit()">
+          <option value="">All Sources</option>
+          <option value="reddit" <%= "selected" if params[:source] == "reddit" %>>Reddit</option>
+          <option value="hackernews" <%= "selected" if params[:source] == "hackernews" %>>Hacker News</option>
+        </select>
+      </div>
+
+      <!-- Status -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 dark:text-gray-400 uppercase">Status</label>
+        <select name="status" class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white" onchange="this.form.submit()">
+          <option value="">All</option>
+          <option value="unread" <%= "selected" if params[:status] == "unread" %>>Unread</option>
+          <option value="read" <%= "selected" if params[:status] == "read" %>>Read</option>
+          <option value="bookmarked" <%= "selected" if params[:status] == "bookmarked" %>>Bookmarked</option>
+        </select>
+      </div>
+
+      <!-- Min Score -->
+      <div class="flex items-center gap-2">
+        <label class="text-xs text-gray-500 dark:text-gray-400 uppercase">Min Score</label>
+        <input type="number" name="min_score" value="<%= params[:min_score] %>"
+               placeholder="0" min="0"
+               class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm w-20 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+      </div>
+
+      <!-- Search -->
+      <div class="flex items-center gap-2 flex-1">
+        <input type="text" name="q" value="<%= params[:q] %>"
+               placeholder="Search titles..."
+               class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1.5 text-sm w-full max-w-xs bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500">
+      </div>
+
+      <button type="submit" class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1.5 rounded text-sm hover:bg-gray-800 dark:hover:bg-gray-200">Apply</button>
+
+      <% if params.except(:controller, :action).to_unsafe_h.any? %>
+        <%= link_to "Clear", admin_articles_path, class: "text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Articles Table -->
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded overflow-hidden">
+  <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <thead class="bg-gray-50 dark:bg-gray-900">
+      <tr>
+        <th class="w-8 px-3 py-3"></th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Title</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Source</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Score</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Hot</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Comments</th>
+        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Published</th>
+        <th class="px-4 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+      <% @articles.each do |article| %>
+        <%= turbo_frame_tag dom_id(article) do %>
+          <tr class="<%= 'opacity-50' if article.read? %>">
+            <td class="px-3 py-3">
+              <% if article.read? %>
+                <span class="text-gray-300 dark:text-gray-600" title="Read">&#10003;</span>
+              <% else %>
+                <span class="w-2 h-2 bg-blue-500 rounded-full inline-block" title="Unread"></span>
+              <% end %>
+            </td>
+            <td class="px-4 py-3">
+              <div class="flex items-start gap-2">
+                <div class="flex-1">
+                  <%= link_to admin_article_path(article),
+                       class: "text-sm #{article.read? ? 'text-gray-500 dark:text-gray-400' : 'text-blue-600 dark:text-blue-400 font-medium'} hover:underline" do %>
+                    <%= truncate(article.title, length: 75) %>
+                  <% end %>
+                  <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5"><%= article.domain %></div>
+                </div>
+                <% if article.bookmarked? %>
+                  <span class="text-yellow-500 flex-shrink-0" title="Bookmarked">&#9733;</span>
+                <% end %>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+              <% if article.reddit? %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">
+                  r/<%= article.source_name %>
+                </span>
+              <% else %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300">
+                  HN
+                </span>
+              <% end %>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400"><%= article.score %></td>
+            <td class="px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300"><%= article.hot_score %></td>
+            <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+              <a href="<%= article.discussion_url %>" target="_blank" class="hover:underline">
+                <%= article.comments_count %>
+              </a>
+            </td>
+            <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+              <%= time_ago_in_words(article.published_at) %> ago
+            </td>
+            <td class="px-4 py-3 text-sm text-right">
+              <%= button_to toggle_bookmark_admin_article_path(article), method: :post,
+                  class: "text-gray-400 dark:text-gray-500 hover:text-yellow-500 p-1",
+                  title: article.bookmarked? ? "Remove bookmark" : "Bookmark" do %>
+                <span class="<%= article.bookmarked? ? 'text-yellow-500' : '' %>">&#9733;</span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+
+      <% if @articles.empty? %>
+        <tr>
+          <td colspan="8" class="px-6 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+            No articles found. <% if params.except(:controller, :action).to_unsafe_h.any? %>Try adjusting your filters or <% end %>Click "Refresh All" to scrape sources.
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

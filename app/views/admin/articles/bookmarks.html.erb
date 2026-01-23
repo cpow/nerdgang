@@ -1,0 +1,66 @@
+<% content_for(:title) { "Bookmarks - News Admin" } %>
+
+<div class="mb-6">
+  <div class="flex justify-between items-center">
+    <div>
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Bookmarks</h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1"><%= @articles.count %> bookmarked articles</p>
+    </div>
+    <%= link_to "&larr; Back to Articles".html_safe, admin_articles_path, class: "text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" %>
+  </div>
+</div>
+
+<% if @articles.any? %>
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded overflow-hidden">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+      <thead class="bg-gray-50 dark:bg-gray-900">
+        <tr>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Title</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Source</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Score</th>
+          <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Bookmarked</th>
+          <th class="px-6 py-3"></th>
+        </tr>
+      </thead>
+      <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+        <% @articles.each do |article| %>
+          <tr>
+            <td class="px-6 py-4">
+              <a href="<%= article.url %>" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+                <%= truncate(article.title, length: 80) %>
+              </a>
+              <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5"><%= article.domain %></div>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+              <% if article.reddit? %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">
+                  r/<%= article.source_name %>
+                </span>
+              <% else %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300">
+                  HN
+                </span>
+              <% end %>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+              <%= article.score %> pts / <%= article.comments_count %> comments
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+              <%= time_ago_in_words(article.bookmarked_at) %> ago
+            </td>
+            <td class="px-6 py-4 text-sm text-right">
+              <%= button_to "Remove", toggle_bookmark_admin_article_path(article),
+                  method: :post,
+                  class: "text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 text-sm" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded p-8 text-center">
+    <p class="text-gray-500 dark:text-gray-400">No bookmarked articles yet.</p>
+    <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">Bookmark articles by clicking the star icon in the articles list.</p>
+  </div>
+<% end %>

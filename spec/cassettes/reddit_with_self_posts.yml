@@ -1,0 +1,518 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.reddit.com/r/technology/hot.json?limit=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - NewsAggregator/1.0 (Rails)
+      Host:
+      - www.reddit.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '45985'
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Type:
+      - application/json; charset=UTF-8
+      Expires:
+      - "-1"
+      Cache-Control:
+      - private, s-maxage=0, max-age=0, must-revalidate, no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Moose
+      X-Ratelimit-Used:
+      - '2'
+      X-Ratelimit-Remaining:
+      - '98.0'
+      X-Ratelimit-Reset:
+      - '192'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Fri, 23 Jan 2026 21:26:47 GMT
+      Via:
+      - 1.1 varnish
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - csv=2; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None
+      - edgebucket=DjzG2c6kt66EpsYOFz; Domain=reddit.com; Max-Age=63071999; Path=/;  secure
+      - loid=0000000026s1fw4q37.2.1769203607029.Z0FBQUFBQnBjLWVYOTNMc2FOQ0hfWWF5RWN0VlNzcExLNnFaQ2ZBX1RiemRsTEd4YXpYeEpMQk1ucEo1Vndkd2NOVnNwZ1hFTkJYZ3FJdlQtaFZ0Y3lQQ0hCbl91UWd0MnlTaFVVcXZXc25wb3pDR1JmNTc1eVlHb0c1VEt4XzFCRUlSQ1NieG1tbzQ;
+        Domain=reddit.com; Max-Age=63071999; Path=/; expires=Sun, 23-Jan-2028 21:26:47
+        GMT; secure; SameSite=None; Secure
+      - session_tracker=mclkifdfhkiklhbbic.0.1769203607038.Z0FBQUFBQnBjLWVYSXBXUjZWRUh2c0NxY3hETm95b2s2Nk9SR0J3ODJQRmY3MHNlUGhaQ1dTeUttM2tKbTVLRy1kTmU5SmZBYXdQSkpKaVVINDNhb3BzUzh1NlZRN3BmZkFlRG55OVB1R3FSbXNhZGdxc2xQb2NHb1R3SDVZbE55aTBLWm9tVW9DOW8;
+        Domain=reddit.com; Max-Age=7199; Path=/; expires=Fri, 23-Jan-2026 23:26:47
+        GMT; secure; SameSite=None; Secure
+      Server:
+      - snooserv
+      Report-To:
+      - '{"group": "w3-reporting-nel", "max_age": 14400, "include_subdomains": true,  "endpoints":
+        [{ "url": "https://w3-reporting-nel.reddit.com/reports" }]}, {"group": "w3-reporting",
+        "max_age": 14400, "include_subdomains": true, "endpoints": [{ "url": "https://w3-reporting.reddit.com/reports"
+        }]}, {"group": "w3-reporting-csp", "max_age": 14400, "include_subdomains":
+        true, "endpoints": [{ "url": "https://w3-reporting-csp.reddit.com/reports"
+        }]}'
+      Nel:
+      - '{"report_to": "w3-reporting-nel", "max_age": 14400, "include_subdomains":
+        false, "success_fraction": 1.0, "failure_fraction": 1.0}'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"kind": "Listing", "data": {"after": "t3_1qk88s7", "dist": 10, "modhash":
+        "", "geo_filter": null, "children": [{"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_irlcj",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Tesla kills Autopilot, locks lane-keeping behind $99/month fee.", "link_flair_richtext":
+        [], "subreddit_name_prefixed": "r/technology", "hidden": false, "pwls": 6,
+        "link_flair_css_class": "general", "downs": 0, "thumbnail_height": 78, "top_awarded_type":
+        null, "hide_score": false, "name": "t3_1qkwbw4", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.97, "author_flair_background_color": null, "ups":
+        12134, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Business",
+        "can_mod_post": false, "score": 12134, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=140&amp;height=78&amp;auto=webp&amp;s=232c9e7f6ddd618d358d623b8d4238da8cf350d4",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769187695.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "arstechnica.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://arstechnica.com/cars/2026/01/tesla-wants-recurring-revenue-discontinues-autopilot-in-favor-of-fsd/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?auto=webp&amp;s=834229026acde54d84e3beb00e716ce20136a373",
+        "width": 2560, "height": 1440}, "resolutions": [{"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=070e97ff7e8de910f9d8a64deea7710671580156",
+        "width": 108, "height": 60}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=e7071a5c22b2b4e2f58e42836226c11bb0a2b12d",
+        "width": 216, "height": 121}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=981a4bd4ffe753376cda9b69bfb98ee0a0aa8239",
+        "width": 320, "height": 180}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=75f1a7f67a24d71425f241f94b85f4fc3344401e",
+        "width": 640, "height": 360}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=977994152987bb7eeb323e4c3a6688b78aa8189a",
+        "width": 960, "height": 540}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=35a81aad022a6889f5329760775abe991ef454ee",
+        "width": 1080, "height": 607}], "variants": {}, "id": "BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "49cac61c-a816-11e9-be34-0ebbab5890a0", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkwbw4", "is_robot_indexable": true, "report_reasons": null, "author":
+        "Stiltonrocks", "discussion_type": null, "num_comments": 1935, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkwbw4/tesla_kills_autopilot_locks_lanekeeping_behind/",
+        "stickied": false, "url": "https://arstechnica.com/cars/2026/01/tesla-wants-recurring-revenue-discontinues-autopilot-in-favor-of-fsd/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769187695.0, "num_crossposts":
+        3, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_hyj89",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Is Your Ring Doorbell Footage Going Straight to ICE\u2019s Massive Spy Network?
+        | Ring partners with Flock to feed doorbell footage into federal databases
+        used by ICE for immigration enforcement", "link_flair_richtext": [], "subreddit_name_prefixed":
+        "r/technology", "hidden": false, "pwls": 6, "link_flair_css_class": "general",
+        "downs": 0, "thumbnail_height": 93, "top_awarded_type": null, "hide_score":
+        false, "name": "t3_1qks90c", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.96, "author_flair_background_color": null, "ups":
+        13835, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Privacy",
+        "can_mod_post": false, "score": 13835, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=140&amp;height=93&amp;auto=webp&amp;s=3528b0bd50cc9d23626e57d208f7ddab40d3ca2e",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769178504.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "gadgetreview.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.gadgetreview.com/is-your-ring-doorbell-footage-going-straight-to-ices-massive-spy-network",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?auto=webp&amp;s=8893c67e95498d6892b5ce16d9bc0886ce7edafa",
+        "width": 275, "height": 183}, "resolutions": [{"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=5e2226715ff4883606542d17a0fa894edb917129",
+        "width": 108, "height": 71}, {"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=797d8c1cbb7f5a9eac0be9d97428f0a08212f06f",
+        "width": 216, "height": 143}], "variants": {}, "id": "izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "73e6711c-a816-11e9-a993-0e21b1dd13b2", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qks90c", "is_robot_indexable": true, "report_reasons": null, "author":
+        "1900grs", "discussion_type": null, "num_comments": 751, "send_replies": true,
+        "contest_mode": false, "mod_reports": [], "author_patreon_flair": false, "author_flair_text_color":
+        null, "permalink": "/r/technology/comments/1qks90c/is_your_ring_doorbell_footage_going_straight_to/",
+        "stickied": false, "url": "https://www.gadgetreview.com/is-your-ring-doorbell-footage-going-straight-to-ices-massive-spy-network",
+        "subreddit_subscribers": 20088348, "created_utc": 1769178504.0, "num_crossposts":
+        5, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_2649m4j21f",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Grok floods X with sexualized images of women and children: Grok generated
+        an estimated 3 million sexualized images, including 23,000 of children in
+        11 days", "link_flair_richtext": [], "subreddit_name_prefixed": "r/technology",
+        "hidden": false, "pwls": 6, "link_flair_css_class": "general", "downs": 0,
+        "thumbnail_height": 78, "top_awarded_type": null, "hide_score": false, "name":
+        "t3_1qkqx9l", "quarantine": false, "link_flair_text_color": "dark", "upvote_ratio":
+        0.96, "author_flair_background_color": null, "ups": 7645, "total_awards_received":
+        0, "media_embed": {}, "thumbnail_width": 140, "author_flair_template_id":
+        null, "is_original_content": false, "user_reports": [], "secure_media": null,
+        "is_reddit_media_domain": false, "is_meta": false, "category": null, "secure_media_embed":
+        {}, "link_flair_text": "Artificial Intelligence", "can_mod_post": false, "score":
+        7645, "approved_by": null, "is_created_from_ads_ui": false, "author_premium":
+        false, "thumbnail": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=140&amp;height=78&amp;auto=webp&amp;s=03e3b1971196c3cce3e64fd54add73e74ad24568",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769175222.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "counterhate.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://counterhate.com/research/grok-floods-x-with-sexualized-images/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?auto=webp&amp;s=0544b582947c5a9ae38a04cd88eabb85fb93b785",
+        "width": 1500, "height": 844}, "resolutions": [{"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=108&amp;crop=smart&amp;auto=webp&amp;s=a0278830b0932aae51c224e28e2adaf6320aa323",
+        "width": 108, "height": 60}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=216&amp;crop=smart&amp;auto=webp&amp;s=ce2fd4bc3d62d0253205be15ca20aa4a8c7e1283",
+        "width": 216, "height": 121}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=320&amp;crop=smart&amp;auto=webp&amp;s=78e96f1105c0068d9a81cc8113477020777638d2",
+        "width": 320, "height": 180}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=640&amp;crop=smart&amp;auto=webp&amp;s=ab361d883b581428a2a0002f1c532a476faeacc1",
+        "width": 640, "height": 360}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=960&amp;crop=smart&amp;auto=webp&amp;s=0b1ac40055685004fb5ce21c29a91f17915c730b",
+        "width": 960, "height": 540}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=1080&amp;crop=smart&amp;auto=webp&amp;s=cfb6194b7952046c8021befa0537c72d0b68e7b0",
+        "width": 1080, "height": 607}], "variants": {}, "id": "Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "4264611c-a816-11e9-ae36-0e68c8f218d4", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkqx9l", "is_robot_indexable": true, "report_reasons": null, "author":
+        "RewardEquivalent553", "discussion_type": null, "num_comments": 673, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkqx9l/grok_floods_x_with_sexualized_images_of_women_and/",
+        "stickied": false, "url": "https://counterhate.com/research/grok-floods-x-with-sexualized-images/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769175222.0, "num_crossposts":
+        2, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_aeasnbznu",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "''Hey, I''m dying'': Decorated Marine texts family goodbye after teens gun
+        him down during Facebook Marketplace ''ruse'' to steal his iPhone and sell
+        it at Walmart ecoATM, cops say", "link_flair_richtext": [], "subreddit_name_prefixed":
+        "r/technology", "hidden": false, "pwls": 6, "link_flair_css_class": "general",
+        "downs": 0, "thumbnail_height": 73, "top_awarded_type": null, "hide_score":
+        false, "name": "t3_1qkwi69", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.95, "author_flair_background_color": null, "ups":
+        2842, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Society",
+        "can_mod_post": false, "score": 2842, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=140&amp;height=73&amp;auto=webp&amp;s=a1c3ccf7df02e468cd9f8db5b7068ecda3a0d6ef",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769188074.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "lawandcrime.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://lawandcrime.com/crime/hey-im-dying-decorated-marine-texts-family-goodbye-after-teens-gun-him-down-during-facebook-marketplace-ruse-to-steal-his-iphone-and-sell-it-at-walmart-ecoatm-cops-say/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?auto=webp&amp;s=6d3d999139dabcd514b8cf743c956642b2914d01",
+        "width": 1200, "height": 627}, "resolutions": [{"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=ca9c54f1bdaf1b50f903e56fd7de395a0ce16467",
+        "width": 108, "height": 56}, {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=fcb975dd09d8d772a3b9d9550940077d18977282",
+        "width": 216, "height": 112}, {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=abc27b55131d91a3a3f90b1efa3e4611eaf99a18",
+        "width": 320, "height": 167}, {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=abcff3fbd48e052be287ad02b648dabf8e202ee8",
+        "width": 640, "height": 334}, {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=4cc11307fc5322014275bec1edc386eb218727a9",
+        "width": 960, "height": 501}, {"url": "https://external-preview.redd.it/MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=109bba6f8b8d3ce056c6f54904dc289b04e503c2",
+        "width": 1080, "height": 564}], "variants": {}, "id": "MtivToZEzf8lsBh9dbgmuR30R5WJDG7REoSIsrAg0yY"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "80187d9a-a816-11e9-a79b-0ea66e3761e6", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkwi69", "is_robot_indexable": true, "report_reasons": null, "author":
+        "Forward-Answer-4407", "discussion_type": null, "num_comments": 396, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkwi69/hey_im_dying_decorated_marine_texts_family/",
+        "stickied": false, "url": "https://lawandcrime.com/crime/hey-im-dying-decorated-marine-texts-family-goodbye-after-teens-gun-him-down-during-facebook-marketplace-ruse-to-steal-his-iphone-and-sell-it-at-walmart-ecoatm-cops-say/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769188074.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_79ijq",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Microsoft Gave FBI Keys To Unlock Encrypted Data, Exposing Major Privacy
+        Flaw", "link_flair_richtext": [], "subreddit_name_prefixed": "r/technology",
+        "hidden": false, "pwls": 6, "link_flair_css_class": "adblock", "downs": 0,
+        "thumbnail_height": 93, "top_awarded_type": null, "hide_score": false, "name":
+        "t3_1qkro7i", "quarantine": false, "link_flair_text_color": "dark", "upvote_ratio":
+        0.98, "author_flair_background_color": null, "subreddit_type": "public", "ups":
+        2175, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "ADBLOCK WARNING",
+        "can_mod_post": false, "score": 2175, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=140&amp;height=93&amp;auto=webp&amp;s=c78e6ea44a545146a9972322db309531242639aa",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "mod_note": null, "created": 1769177100.0, "link_flair_type": "text",
+        "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "forbes.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.forbes.com/sites/thomasbrewster/2026/01/22/microsoft-gave-fbi-keys-to-unlock-bitlocker-encrypted-data/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?auto=webp&amp;s=769568e759c87c92b84ed376feee03bf870eb981",
+        "width": 1350, "height": 900}, "resolutions": [{"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=22cab9cc8c2674df4349b84c969954f2f711ec12",
+        "width": 108, "height": 72}, {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=b349a5e500b6a9fdd42d34f9add5edd19c8b441a",
+        "width": 216, "height": 144}, {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=bbf2b0aaaf18aaad47411ec91a59915318beff73",
+        "width": 320, "height": 213}, {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=18218952fa977db5a3164b8ad03cfde3043f5e40",
+        "width": 640, "height": 426}, {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=7ba3cfe94a75d4c7752af87dbeb1ddf52f535eb1",
+        "width": 960, "height": 640}, {"url": "https://external-preview.redd.it/iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=52409112c3bc266459df8f3ebdb20c0b88cb6074",
+        "width": 1080, "height": 720}], "variants": {}, "id": "iSlKF5ARQF6yum4K9JM2uSBzp6BMc9xEMzeRBt0Mu88"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "can_gild": false, "spoiler": false, "locked": false, "author_flair_text":
+        null, "treatment_tags": [], "visited": false, "removed_by": null, "num_reports":
+        null, "distinguished": null, "subreddit_id": "t5_2qh16", "author_is_blocked":
+        false, "mod_reason_by": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkro7i", "is_robot_indexable": true, "report_reasons": null, "author":
+        "blixt141", "discussion_type": null, "num_comments": 124, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkro7i/microsoft_gave_fbi_keys_to_unlock_encrypted_data/",
+        "stickied": false, "url": "https://www.forbes.com/sites/thomasbrewster/2026/01/22/microsoft-gave-fbi-keys-to-unlock-bitlocker-encrypted-data/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769177100.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_hz9s0k73",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "SSA admits DOGE had more access than first said", "link_flair_richtext":
+        [], "subreddit_name_prefixed": "r/technology", "hidden": false, "pwls": 6,
+        "link_flair_css_class": "general", "downs": 0, "thumbnail_height": 70, "top_awarded_type":
+        null, "hide_score": true, "name": "t3_1ql1cre", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.99, "author_flair_background_color": null, "ups":
+        756, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Privacy",
+        "can_mod_post": false, "score": 756, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=140&amp;height=70&amp;auto=webp&amp;s=160d5d951f9c5172dd72938d1ef8eca7407fddec",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769198660.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "theregister.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.theregister.com/2026/01/21/social_security_administration_doge_data/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?auto=webp&amp;s=7fb28590f088e5d8c4bcc9f9939fe1235440d6dd",
+        "width": 1200, "height": 601}, "resolutions": [{"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=378032013c61f179753ff877c037e8daf1f74f9e",
+        "width": 108, "height": 54}, {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=f3a616075bcedf17371ecbe2ea32783b234ece98",
+        "width": 216, "height": 108}, {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=f58fb909a4dbbf7bf5f02f0774e1fdd36bde4d26",
+        "width": 320, "height": 160}, {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=dad9e4d3c82ee615cc084771d03d8997589e1479",
+        "width": 640, "height": 320}, {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=bf79531a000e21c549abd1765cbba3554d0ca61d",
+        "width": 960, "height": 480}, {"url": "https://external-preview.redd.it/vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=f6806904eec021fb5d0785ef2be2ad76aeecf010",
+        "width": 1080, "height": 540}], "variants": {}, "id": "vKhID1kp2SHTo2PEAJs2c64IR5c8SE9aH3w_17QjzmM"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "73e6711c-a816-11e9-a993-0e21b1dd13b2", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1ql1cre", "is_robot_indexable": true, "report_reasons": null, "author":
+        "waozen", "discussion_type": null, "num_comments": 29, "send_replies": false,
+        "contest_mode": false, "mod_reports": [], "author_patreon_flair": false, "author_flair_text_color":
+        null, "permalink": "/r/technology/comments/1ql1cre/ssa_admits_doge_had_more_access_than_first_said/",
+        "stickied": false, "url": "https://www.theregister.com/2026/01/21/social_security_administration_doge_data/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769198660.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_8spjttn6",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Paris Hilton joins AOC in fight against AI porn", "link_flair_richtext":
+        [], "subreddit_name_prefixed": "r/technology", "hidden": false, "pwls": 6,
+        "link_flair_css_class": "general", "downs": 0, "thumbnail_height": 78, "top_awarded_type":
+        null, "hide_score": false, "name": "t3_1qkviop", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.94, "author_flair_background_color": null, "ups":
+        1101, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Artificial
+        Intelligence", "can_mod_post": false, "score": 1101, "approved_by": null,
+        "is_created_from_ads_ui": false, "author_premium": true, "thumbnail": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=140&amp;height=78&amp;auto=webp&amp;s=a42c0aa03a0a4b4fff30c93f048fd385d95ecac3",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769185914.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "axios.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.axios.com/2026/01/22/paris-hilton-aoc-fight-ai-porn", "view_count":
+        null, "archived": false, "no_follow": false, "is_crosspostable": false, "pinned":
+        false, "over_18": false, "preview": {"images": [{"source": {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?auto=webp&amp;s=152ef2c33925848c57848603991956d2242b01bb",
+        "width": 1366, "height": 768}, "resolutions": [{"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=ffbbb64e9ce0ae36881e3a1a40bb66e5a6549bd6",
+        "width": 108, "height": 60}, {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=43f13bc745bb604880f74a5f851a48e13c56a506",
+        "width": 216, "height": 121}, {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=03b4110c484c74792e1d1e4f508067149500743e",
+        "width": 320, "height": 179}, {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=e8091097f7de191a6031b06324b998cb61757739",
+        "width": 640, "height": 359}, {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=db168ad5b52f09648267d1d0c487300c134fd342",
+        "width": 960, "height": 539}, {"url": "https://external-preview.redd.it/1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=eec9b5ad56314c48e12823d9a4c47ea5ed953666",
+        "width": 1080, "height": 607}], "variants": {}, "id": "1BMti_2burFrK4h-Ci52GZylzJ6PjPeahqljZyuMdXI"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "4264611c-a816-11e9-ae36-0e68c8f218d4", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkviop", "is_robot_indexable": true, "report_reasons": null, "author":
+        "MetaKnowing", "discussion_type": null, "num_comments": 110, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkviop/paris_hilton_joins_aoc_in_fight_against_ai_porn/",
+        "stickied": false, "url": "https://www.axios.com/2026/01/22/paris-hilton-aoc-fight-ai-porn",
+        "subreddit_subscribers": 20088348, "created_utc": 1769185914.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_7m6hqt5i",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Scarlett Johansson joins forces with other stars to accuse AI firms of \u2018theft\u2019",
+        "link_flair_richtext": [], "subreddit_name_prefixed": "r/technology", "hidden":
+        false, "pwls": 6, "link_flair_css_class": "general", "downs": 0, "thumbnail_height":
+        93, "top_awarded_type": null, "hide_score": false, "name": "t3_1qknacd", "quarantine":
+        false, "link_flair_text_color": "dark", "upvote_ratio": 0.95, "author_flair_background_color":
+        null, "ups": 2159, "total_awards_received": 0, "media_embed": {}, "thumbnail_width":
+        140, "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Artificial
+        Intelligence", "can_mod_post": false, "score": 2159, "approved_by": null,
+        "is_created_from_ads_ui": false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=140&amp;height=93&amp;auto=webp&amp;s=af9bc013cc56428064a66d8d03bfb439716b50cf",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769163878.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "the-independent.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.the-independent.com/arts-entertainment/films/news/scarlett-johansson-anti-ai-campaign-b2906171.html",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?auto=webp&amp;s=808d64623212ce91aafce3c1ee47e6eca1dc3041",
+        "width": 1200, "height": 800}, "resolutions": [{"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=a97afd2bb271032506d29cbbcb18f9fbe319bc4c",
+        "width": 108, "height": 72}, {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=fb9a06e26ab72f9fb247b331d23cfe083e5133e8",
+        "width": 216, "height": 144}, {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=c6d8b8b858b82cc2dd938994a296f76786f3ad1c",
+        "width": 320, "height": 213}, {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=6177176fce10fb6be2cc363287019920915187ce",
+        "width": 640, "height": 426}, {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=81250a7adef563ab7b0fb1052b769bf1d3916ab0",
+        "width": 960, "height": 640}, {"url": "https://external-preview.redd.it/UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=e28f93e8fc84fb42f9bd702531770f4bbb71a9bb",
+        "width": 1080, "height": 720}], "variants": {}, "id": "UOL2AionGGuvvxNHpab2MO1T8ceT2vJ7Jnq1X9GFiwI"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "4264611c-a816-11e9-ae36-0e68c8f218d4", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qknacd", "is_robot_indexable": true, "report_reasons": null, "author":
+        "Disastrous_Award_789", "discussion_type": null, "num_comments": 41, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qknacd/scarlett_johansson_joins_forces_with_other_stars/",
+        "stickied": false, "url": "https://www.the-independent.com/arts-entertainment/films/news/scarlett-johansson-anti-ai-campaign-b2906171.html",
+        "subreddit_subscribers": 20088348, "created_utc": 1769163878.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_1et91nh",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "RFK Jr. Spreads New Bogus Scare Mongering Bullshit About Cell Phone Safety",
+        "link_flair_richtext": [], "subreddit_name_prefixed": "r/technology", "hidden":
+        false, "pwls": 6, "link_flair_css_class": "general", "downs": 0, "thumbnail_height":
+        73, "top_awarded_type": null, "hide_score": false, "name": "t3_1ql07n5", "quarantine":
+        false, "link_flair_text_color": "dark", "upvote_ratio": 0.91, "author_flair_background_color":
+        null, "ups": 383, "total_awards_received": 0, "media_embed": {}, "thumbnail_width":
+        140, "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Networking/Telecom",
+        "can_mod_post": false, "score": 383, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=140&amp;height=73&amp;auto=webp&amp;s=0b9698a71629d88f455358116c0011c9c2cd2a78",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769196119.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "techdirt.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.techdirt.com/2026/01/23/rfk-jr-spreads-new-bogus-scare-mongering-bullshit-about-cell-phone-safety/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?auto=webp&amp;s=e7fa1863ce18b48fcaee0e360c9f8073c0381bb9",
+        "width": 1200, "height": 630}, "resolutions": [{"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=108&amp;crop=smart&amp;auto=webp&amp;s=0df9c33e13a9eabd985a87ae6f84d20f167f08df",
+        "width": 108, "height": 56}, {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=216&amp;crop=smart&amp;auto=webp&amp;s=b72aa2bd708d6da6c95c4faa3252152bf042777e",
+        "width": 216, "height": 113}, {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=320&amp;crop=smart&amp;auto=webp&amp;s=6f2e0e50e2bdbdb066864fb5642b953705f1a6c1",
+        "width": 320, "height": 168}, {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=640&amp;crop=smart&amp;auto=webp&amp;s=a1a6cfbe9524d8a1a6256dc8bc5c1b9956207d61",
+        "width": 640, "height": 336}, {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=960&amp;crop=smart&amp;auto=webp&amp;s=a3d082f109c76f781b563d34dd3f6817c5865c76",
+        "width": 960, "height": 504}, {"url": "https://external-preview.redd.it/QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U.png?width=1080&amp;crop=smart&amp;auto=webp&amp;s=847764a70f38c8c819c526acdc7770d9df3cf46a",
+        "width": 1080, "height": 567}], "variants": {}, "id": "QdCWJLZtSx1Ly9Z2yTbDMgT5dhGTgi8syC6l1SyLf7U"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "69c9e74a-a816-11e9-b15f-0efdc827626c", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1ql07n5", "is_robot_indexable": true, "report_reasons": null, "author":
+        "StraightedgexLiberal", "discussion_type": null, "num_comments": 85, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1ql07n5/rfk_jr_spreads_new_bogus_scare_mongering_bullshit/",
+        "stickied": false, "url": "https://www.techdirt.com/2026/01/23/rfk-jr-spreads-new-bogus-scare-mongering-bullshit-about-cell-phone-safety/",
+        "subreddit_subscribers": 20088348, "created_utc": 1769196119.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_qi49f6qtc",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "White House Posts AI-Altered Photo of Arrested Protester", "link_flair_richtext":
+        [], "subreddit_name_prefixed": "r/technology", "hidden": false, "pwls": 6,
+        "link_flair_css_class": "general", "downs": 0, "thumbnail_height": 73, "top_awarded_type":
+        null, "hide_score": false, "name": "t3_1qk88s7", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.95, "author_flair_background_color": null, "ups":
+        23154, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Artificial
+        Intelligence", "can_mod_post": false, "score": 23154, "approved_by": null,
+        "is_created_from_ads_ui": false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=140&amp;height=73&amp;auto=webp&amp;s=2c68058ba47e4e1c8d5eb5acb4429c3f0edaa905",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769119335.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "nymag.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://nymag.com/intelligencer/article/white-house-posts-fake-arrest-photo-of-minnesota-protester.html",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?auto=webp&amp;s=d108b88536fe8c0dd0d9ef51e87808fdf4b4dc42",
+        "width": 1200, "height": 632}, "resolutions": [{"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=f257fef6acb7fb005595b0caef700f714a5f6228",
+        "width": 108, "height": 56}, {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=d8755b1cc8ff269e028fb5de77a006c23d1c5646",
+        "width": 216, "height": 113}, {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=c883c0a1762ebb425c0ecaeef2f17180f8cb5378",
+        "width": 320, "height": 168}, {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=ee54b640735d634c684b7c957885d9550df7036b",
+        "width": 640, "height": 337}, {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=7b35e8a187ea80c2802e1f2dd76e8a5879111f1b",
+        "width": 960, "height": 505}, {"url": "https://external-preview.redd.it/FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=6204553e26e0f625a26f11e1fb487aba04b71ce0",
+        "width": 1080, "height": 568}], "variants": {}, "id": "FR1cobcMaY1ytSlkG_wzH15P6XCGiHItOTDIRQSLUCk"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "4264611c-a816-11e9-ae36-0e68c8f218d4", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qk88s7", "is_robot_indexable": true, "report_reasons": null, "author":
+        "Well_Socialized", "discussion_type": null, "num_comments": 711, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qk88s7/white_house_posts_aialtered_photo_of_arrested/",
+        "stickied": false, "url": "https://nymag.com/intelligencer/article/white-house-posts-fake-arrest-photo-of-minnesota-protester.html",
+        "subreddit_subscribers": 20088348, "created_utc": 1769119335.0, "num_crossposts":
+        2, "media": null, "is_video": false}}], "before": null}}'
+  recorded_at: Fri, 23 Jan 2026 21:26:47 GMT
+recorded_with: VCR 6.4.0

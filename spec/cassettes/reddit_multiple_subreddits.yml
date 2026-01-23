@@ -1,0 +1,396 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.reddit.com/r/technology/hot.json?limit=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - NewsAggregator/1.0 (Rails)
+      Host:
+      - www.reddit.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13354'
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Type:
+      - application/json; charset=UTF-8
+      Expires:
+      - "-1"
+      Cache-Control:
+      - private, s-maxage=0, max-age=0, must-revalidate, no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Moose
+      X-Ratelimit-Used:
+      - '5'
+      X-Ratelimit-Remaining:
+      - '95.0'
+      X-Ratelimit-Reset:
+      - '191'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Fri, 23 Jan 2026 21:26:48 GMT
+      Via:
+      - 1.1 varnish
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - csv=2; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None
+      - edgebucket=fEk4MT14c3zKtUqZH8; Domain=reddit.com; Max-Age=63071999; Path=/;  secure
+      - loid=0000000026s1fwgdob.2.1769203608382.Z0FBQUFBQnBjLWVZTzBuQnZQTnA0S0k0WmpXTlotZ3YwOER6QWR6Wm1uVklEMzNLaElSR0x6X1FaTG9aTmVrMEg3SUVFc1V3czUyRFJoUlpfb1hGU2ZJNjB4ZDJEOU9Na0tabm9VaGFfTm1wVE1Hb01Va0d5SE1pVVVXVnlLVE1pbVFtdVVuWExrTnY;
+        Domain=reddit.com; Max-Age=63071999; Path=/; expires=Sun, 23-Jan-2028 21:26:48
+        GMT; secure; SameSite=None; Secure
+      - session_tracker=lpbcibemnlfiifipbm.0.1769203608392.Z0FBQUFBQnBjLWVZNVFZUElEaGE4bk1fN3g5am50cEY4Z3UwbnVtelRkdnprLUhNTzVhLTF0bG1oMFFBTTZBa0doQ0RZbERJOFhaUk9JdWFpS09nT1czYWNfSjRvejNKLUdVZ0dWV1p1WUtCWEVNVjU5Umd4MXJRcnRwcmJhQ0xSQWdMaHhVVlZQS18;
+        Domain=reddit.com; Max-Age=7199; Path=/; expires=Fri, 23-Jan-2026 23:26:48
+        GMT; secure; SameSite=None; Secure
+      Server:
+      - snooserv
+      Report-To:
+      - '{"group": "w3-reporting-nel", "max_age": 14400, "include_subdomains": true,  "endpoints":
+        [{ "url": "https://w3-reporting-nel.reddit.com/reports" }]}, {"group": "w3-reporting",
+        "max_age": 14400, "include_subdomains": true, "endpoints": [{ "url": "https://w3-reporting.reddit.com/reports"
+        }]}, {"group": "w3-reporting-csp", "max_age": 14400, "include_subdomains":
+        true, "endpoints": [{ "url": "https://w3-reporting-csp.reddit.com/reports"
+        }]}'
+      Nel:
+      - '{"report_to": "w3-reporting-nel", "max_age": 14400, "include_subdomains":
+        false, "success_fraction": 1.0, "failure_fraction": 1.0}'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"kind": "Listing", "data": {"after": "t3_1qkqx9l", "dist": 3, "modhash":
+        "", "geo_filter": null, "children": [{"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_irlcj",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Tesla kills Autopilot, locks lane-keeping behind $99/month fee.", "link_flair_richtext":
+        [], "subreddit_name_prefixed": "r/technology", "hidden": false, "pwls": 6,
+        "link_flair_css_class": "general", "downs": 0, "thumbnail_height": 78, "top_awarded_type":
+        null, "hide_score": false, "name": "t3_1qkwbw4", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.97, "author_flair_background_color": null, "ups":
+        12127, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Business",
+        "can_mod_post": false, "score": 12127, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=140&amp;height=78&amp;auto=webp&amp;s=232c9e7f6ddd618d358d623b8d4238da8cf350d4",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769187695.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "arstechnica.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://arstechnica.com/cars/2026/01/tesla-wants-recurring-revenue-discontinues-autopilot-in-favor-of-fsd/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?auto=webp&amp;s=834229026acde54d84e3beb00e716ce20136a373",
+        "width": 2560, "height": 1440}, "resolutions": [{"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=070e97ff7e8de910f9d8a64deea7710671580156",
+        "width": 108, "height": 60}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=e7071a5c22b2b4e2f58e42836226c11bb0a2b12d",
+        "width": 216, "height": 121}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=320&amp;crop=smart&amp;auto=webp&amp;s=981a4bd4ffe753376cda9b69bfb98ee0a0aa8239",
+        "width": 320, "height": 180}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=640&amp;crop=smart&amp;auto=webp&amp;s=75f1a7f67a24d71425f241f94b85f4fc3344401e",
+        "width": 640, "height": 360}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=960&amp;crop=smart&amp;auto=webp&amp;s=977994152987bb7eeb323e4c3a6688b78aa8189a",
+        "width": 960, "height": 540}, {"url": "https://external-preview.redd.it/BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y.jpeg?width=1080&amp;crop=smart&amp;auto=webp&amp;s=35a81aad022a6889f5329760775abe991ef454ee",
+        "width": 1080, "height": 607}], "variants": {}, "id": "BJEUE9fJsdCJ4Vcfmhji9VTPddetGoYw4NjFTn7XX8Y"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "49cac61c-a816-11e9-be34-0ebbab5890a0", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkwbw4", "is_robot_indexable": true, "report_reasons": null, "author":
+        "Stiltonrocks", "discussion_type": null, "num_comments": 1934, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkwbw4/tesla_kills_autopilot_locks_lanekeeping_behind/",
+        "stickied": false, "url": "https://arstechnica.com/cars/2026/01/tesla-wants-recurring-revenue-discontinues-autopilot-in-favor-of-fsd/",
+        "subreddit_subscribers": 20088349, "created_utc": 1769187695.0, "num_crossposts":
+        3, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_hyj89",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Is Your Ring Doorbell Footage Going Straight to ICE\u2019s Massive Spy Network?
+        | Ring partners with Flock to feed doorbell footage into federal databases
+        used by ICE for immigration enforcement", "link_flair_richtext": [], "subreddit_name_prefixed":
+        "r/technology", "hidden": false, "pwls": 6, "link_flair_css_class": "general",
+        "downs": 0, "thumbnail_height": 93, "top_awarded_type": null, "hide_score":
+        false, "name": "t3_1qks90c", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.96, "author_flair_background_color": null, "ups":
+        13827, "total_awards_received": 0, "media_embed": {}, "thumbnail_width": 140,
+        "author_flair_template_id": null, "is_original_content": false, "user_reports":
+        [], "secure_media": null, "is_reddit_media_domain": false, "is_meta": false,
+        "category": null, "secure_media_embed": {}, "link_flair_text": "Privacy",
+        "can_mod_post": false, "score": 13827, "approved_by": null, "is_created_from_ads_ui":
+        false, "author_premium": false, "thumbnail": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=140&amp;height=93&amp;auto=webp&amp;s=3528b0bd50cc9d23626e57d208f7ddab40d3ca2e",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769178504.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "gadgetreview.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://www.gadgetreview.com/is-your-ring-doorbell-footage-going-straight-to-ices-massive-spy-network",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?auto=webp&amp;s=8893c67e95498d6892b5ce16d9bc0886ce7edafa",
+        "width": 275, "height": 183}, "resolutions": [{"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=108&amp;crop=smart&amp;auto=webp&amp;s=5e2226715ff4883606542d17a0fa894edb917129",
+        "width": 108, "height": 71}, {"url": "https://external-preview.redd.it/izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU.jpeg?width=216&amp;crop=smart&amp;auto=webp&amp;s=797d8c1cbb7f5a9eac0be9d97428f0a08212f06f",
+        "width": 216, "height": 143}], "variants": {}, "id": "izaSckTHSn0nKSg2rE4xOfuNnohlW6RCsyRBQWMzKhU"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "73e6711c-a816-11e9-a993-0e21b1dd13b2", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qks90c", "is_robot_indexable": true, "report_reasons": null, "author":
+        "1900grs", "discussion_type": null, "num_comments": 749, "send_replies": true,
+        "contest_mode": false, "mod_reports": [], "author_patreon_flair": false, "author_flair_text_color":
+        null, "permalink": "/r/technology/comments/1qks90c/is_your_ring_doorbell_footage_going_straight_to/",
+        "stickied": false, "url": "https://www.gadgetreview.com/is-your-ring-doorbell-footage-going-straight-to-ices-massive-spy-network",
+        "subreddit_subscribers": 20088349, "created_utc": 1769178504.0, "num_crossposts":
+        5, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "technology", "selftext": "", "author_fullname": "t2_2649m4j21f",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Grok floods X with sexualized images of women and children: Grok generated
+        an estimated 3 million sexualized images, including 23,000 of children in
+        11 days", "link_flair_richtext": [], "subreddit_name_prefixed": "r/technology",
+        "hidden": false, "pwls": 6, "link_flair_css_class": "general", "downs": 0,
+        "thumbnail_height": 78, "top_awarded_type": null, "hide_score": false, "name":
+        "t3_1qkqx9l", "quarantine": false, "link_flair_text_color": "dark", "upvote_ratio":
+        0.96, "author_flair_background_color": null, "ups": 7652, "total_awards_received":
+        0, "media_embed": {}, "thumbnail_width": 140, "author_flair_template_id":
+        null, "is_original_content": false, "user_reports": [], "secure_media": null,
+        "is_reddit_media_domain": false, "is_meta": false, "category": null, "secure_media_embed":
+        {}, "link_flair_text": "Artificial Intelligence", "can_mod_post": false, "score":
+        7652, "approved_by": null, "is_created_from_ads_ui": false, "author_premium":
+        false, "thumbnail": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=140&amp;height=78&amp;auto=webp&amp;s=03e3b1971196c3cce3e64fd54add73e74ad24568",
+        "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "post_hint": "link", "content_categories": null, "is_self":
+        false, "subreddit_type": "public", "created": 1769175222.0, "link_flair_type":
+        "text", "wls": 6, "removed_by_category": null, "banned_by": null, "author_flair_type":
+        "text", "domain": "counterhate.com", "allow_live_comments": false, "selftext_html":
+        null, "likes": null, "suggested_sort": null, "banned_at_utc": null, "url_overridden_by_dest":
+        "https://counterhate.com/research/grok-floods-x-with-sexualized-images/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "preview": {"images": [{"source":
+        {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?auto=webp&amp;s=0544b582947c5a9ae38a04cd88eabb85fb93b785",
+        "width": 1500, "height": 844}, "resolutions": [{"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=108&amp;crop=smart&amp;auto=webp&amp;s=a0278830b0932aae51c224e28e2adaf6320aa323",
+        "width": 108, "height": 60}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=216&amp;crop=smart&amp;auto=webp&amp;s=ce2fd4bc3d62d0253205be15ca20aa4a8c7e1283",
+        "width": 216, "height": 121}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=320&amp;crop=smart&amp;auto=webp&amp;s=78e96f1105c0068d9a81cc8113477020777638d2",
+        "width": 320, "height": 180}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=640&amp;crop=smart&amp;auto=webp&amp;s=ab361d883b581428a2a0002f1c532a476faeacc1",
+        "width": 640, "height": 360}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=960&amp;crop=smart&amp;auto=webp&amp;s=0b1ac40055685004fb5ce21c29a91f17915c730b",
+        "width": 960, "height": 540}, {"url": "https://external-preview.redd.it/Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0.png?width=1080&amp;crop=smart&amp;auto=webp&amp;s=cfb6194b7952046c8021befa0537c72d0b68e7b0",
+        "width": 1080, "height": 607}], "variants": {}, "id": "Sj_BYAxnO_0_SxX57GVqw-fkTZvsKGFcE1IR3L_Jrw0"}],
+        "enabled": false}, "all_awardings": [], "awarders": [], "media_only": false,
+        "link_flair_template_id": "4264611c-a816-11e9-ae36-0e68c8f218d4", "can_gild":
+        false, "spoiler": false, "locked": false, "author_flair_text": null, "treatment_tags":
+        [], "visited": false, "removed_by": null, "mod_note": null, "distinguished":
+        null, "subreddit_id": "t5_2qh16", "author_is_blocked": false, "mod_reason_by":
+        null, "num_reports": null, "removal_reason": null, "link_flair_background_color":
+        "", "id": "1qkqx9l", "is_robot_indexable": true, "report_reasons": null, "author":
+        "RewardEquivalent553", "discussion_type": null, "num_comments": 673, "send_replies":
+        true, "contest_mode": false, "mod_reports": [], "author_patreon_flair": false,
+        "author_flair_text_color": null, "permalink": "/r/technology/comments/1qkqx9l/grok_floods_x_with_sexualized_images_of_women_and/",
+        "stickied": false, "url": "https://counterhate.com/research/grok-floods-x-with-sexualized-images/",
+        "subreddit_subscribers": 20088349, "created_utc": 1769175222.0, "num_crossposts":
+        2, "media": null, "is_video": false}}], "before": null}}'
+  recorded_at: Fri, 23 Jan 2026 21:26:48 GMT
+- request:
+    method: get
+    uri: https://www.reddit.com/r/programming/hot.json?limit=3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - NewsAggregator/1.0 (Rails)
+      Host:
+      - www.reddit.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '8164'
+      X-Ua-Compatible:
+      - IE=edge
+      Content-Type:
+      - application/json; charset=UTF-8
+      Expires:
+      - "-1"
+      Cache-Control:
+      - private, s-maxage=0, max-age=0, must-revalidate, no-store
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - X-Moose
+      X-Ratelimit-Used:
+      - '6'
+      X-Ratelimit-Remaining:
+      - '94.0'
+      X-Ratelimit-Reset:
+      - '191'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Fri, 23 Jan 2026 21:26:49 GMT
+      Via:
+      - 1.1 varnish
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Set-Cookie:
+      - csv=2; Max-Age=63072000; Domain=.reddit.com; Path=/; Secure; SameSite=None
+      - edgebucket=XrGj1BDXKsvQFADd6X; Domain=reddit.com; Max-Age=63071999; Path=/;  secure
+      - loid=0000000026s1fwk0u3.2.1769203608804.Z0FBQUFBQnBjLWVaaXFYbjR5Ny14U1dGTFlfWnhwb09KR1NBQWhKYjdvdlZqQzNMcTZ2SkhqcVF5WW9VOTRsYXd3X0NMdzBZdUFUZ21RTjgtNDNpalNLVFZfZHNCUEtHUWtTOW5PTHNrMjNCY29BRkdQeC1FOTViSXVUOG43dUxwMXppejdwaHBZWE0;
+        Domain=reddit.com; Max-Age=63071999; Path=/; expires=Sun, 23-Jan-2028 21:26:49
+        GMT; secure; SameSite=None; Secure
+      - session_tracker=ropmghpgnfginppcdo.0.1769203608816.Z0FBQUFBQnBjLWVaT2ZHS2ppU0dsVjJBN1lGMFJyRVdVekZHSzhrYTlVclZfbFdKRS0yal9FR3lPelVlVVZPTVBFTFFhX1ZVQmZPVjdqTnVmZGY1SnFsVjRwdkhyNzNONGt6WGtNeVRSckZGVnNsNHhVbm1xVmdXRkEzUG8zbUhfT1BHdHpaaDBVZlg;
+        Domain=reddit.com; Max-Age=7199; Path=/; expires=Fri, 23-Jan-2026 23:26:49
+        GMT; secure; SameSite=None; Secure
+      Server:
+      - snooserv
+      Report-To:
+      - '{"group": "w3-reporting-nel", "max_age": 14400, "include_subdomains": true,  "endpoints":
+        [{ "url": "https://w3-reporting-nel.reddit.com/reports" }]}, {"group": "w3-reporting",
+        "max_age": 14400, "include_subdomains": true, "endpoints": [{ "url": "https://w3-reporting.reddit.com/reports"
+        }]}, {"group": "w3-reporting-csp", "max_age": 14400, "include_subdomains":
+        true, "endpoints": [{ "url": "https://w3-reporting-csp.reddit.com/reports"
+        }]}'
+      Nel:
+      - '{"report_to": "w3-reporting-nel", "max_age": 14400, "include_subdomains":
+        false, "success_fraction": 1.0, "failure_fraction": 1.0}'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"kind": "Listing", "data": {"after": "t3_1qkwhb0", "dist": 3, "modhash":
+        "", "geo_filter": null, "children": [{"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "programming", "selftext": "", "author_fullname": "t2_41nyo",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Overrun with AI slop, cURL scraps bug bounties to ensure \"intact mental
+        health\"", "link_flair_richtext": [], "subreddit_name_prefixed": "r/programming",
+        "hidden": false, "pwls": 6, "link_flair_css_class": null, "downs": 0, "top_awarded_type":
+        null, "hide_score": true, "name": "t3_1ql0w5p", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.96, "author_flair_background_color": null, "subreddit_type":
+        "public", "ups": 190, "total_awards_received": 0, "media_embed": {}, "author_flair_template_id":
+        null, "is_original_content": false, "user_reports": [], "secure_media": null,
+        "is_reddit_media_domain": false, "is_meta": false, "category": null, "secure_media_embed":
+        {}, "link_flair_text": null, "can_mod_post": false, "score": 190, "approved_by":
+        null, "is_created_from_ads_ui": false, "author_premium": false, "thumbnail":
+        "", "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "content_categories": null, "is_self": false, "mod_note":
+        null, "created": 1769197621.0, "link_flair_type": "text", "wls": 6, "removed_by_category":
+        null, "banned_by": null, "author_flair_type": "text", "domain": "arstechnica.com",
+        "allow_live_comments": false, "selftext_html": null, "likes": null, "suggested_sort":
+        null, "banned_at_utc": null, "url_overridden_by_dest": "https://arstechnica.com/security/2026/01/overrun-with-ai-slop-curl-scraps-bug-bounties-to-ensure-intact-mental-health/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "all_awardings": [], "awarders":
+        [], "media_only": false, "can_gild": false, "spoiler": false, "locked": false,
+        "author_flair_text": null, "treatment_tags": [], "visited": false, "removed_by":
+        null, "num_reports": null, "distinguished": null, "subreddit_id": "t5_2fwo",
+        "author_is_blocked": false, "mod_reason_by": null, "removal_reason": null,
+        "link_flair_background_color": "", "id": "1ql0w5p", "is_robot_indexable":
+        true, "report_reasons": null, "author": "Drumedor", "discussion_type": null,
+        "num_comments": 4, "send_replies": true, "contest_mode": false, "mod_reports":
+        [], "author_patreon_flair": false, "author_flair_text_color": null, "permalink":
+        "/r/programming/comments/1ql0w5p/overrun_with_ai_slop_curl_scraps_bug_bounties_to/",
+        "stickied": false, "url": "https://arstechnica.com/security/2026/01/overrun-with-ai-slop-curl-scraps-bug-bounties-to-ensure-intact-mental-health/",
+        "subreddit_subscribers": 6828623, "created_utc": 1769197621.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "programming", "selftext": "", "author_fullname": "t2_pe5ma",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Why does SSH send 100 packets per keystroke?", "link_flair_richtext": [],
+        "subreddit_name_prefixed": "r/programming", "hidden": false, "pwls": 6, "link_flair_css_class":
+        null, "downs": 0, "top_awarded_type": null, "hide_score": false, "name": "t3_1qksfgi",
+        "quarantine": false, "link_flair_text_color": "dark", "upvote_ratio": 0.87,
+        "author_flair_background_color": null, "subreddit_type": "public", "ups":
+        430, "total_awards_received": 0, "media_embed": {}, "author_flair_template_id":
+        null, "is_original_content": false, "user_reports": [], "secure_media": null,
+        "is_reddit_media_domain": false, "is_meta": false, "category": null, "secure_media_embed":
+        {}, "link_flair_text": null, "can_mod_post": false, "score": 430, "approved_by":
+        null, "is_created_from_ads_ui": false, "author_premium": false, "thumbnail":
+        "", "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "content_categories": null, "is_self": false, "mod_note":
+        null, "created": 1769178924.0, "link_flair_type": "text", "wls": 6, "removed_by_category":
+        null, "banned_by": null, "author_flair_type": "text", "domain": "eieio.games",
+        "allow_live_comments": false, "selftext_html": null, "likes": null, "suggested_sort":
+        null, "banned_at_utc": null, "url_overridden_by_dest": "https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "all_awardings": [], "awarders":
+        [], "media_only": false, "can_gild": false, "spoiler": false, "locked": false,
+        "author_flair_text": null, "treatment_tags": [], "visited": false, "removed_by":
+        null, "num_reports": null, "distinguished": null, "subreddit_id": "t5_2fwo",
+        "author_is_blocked": false, "mod_reason_by": null, "removal_reason": null,
+        "link_flair_background_color": "", "id": "1qksfgi", "is_robot_indexable":
+        true, "report_reasons": null, "author": "iamkeyur", "discussion_type": null,
+        "num_comments": 139, "send_replies": true, "contest_mode": false, "mod_reports":
+        [], "author_patreon_flair": false, "author_flair_text_color": null, "permalink":
+        "/r/programming/comments/1qksfgi/why_does_ssh_send_100_packets_per_keystroke/",
+        "stickied": false, "url": "https://eieio.games/blog/ssh-sends-100-packets-per-keystroke/",
+        "subreddit_subscribers": 6828623, "created_utc": 1769178924.0, "num_crossposts":
+        0, "media": null, "is_video": false}}, {"kind": "t3", "data": {"approved_at_utc":
+        null, "subreddit": "programming", "selftext": "", "author_fullname": "t2_1p0cfkq7",
+        "saved": false, "mod_reason_title": null, "gilded": 0, "clicked": false, "title":
+        "Scaling PostgreSQL to power 800 million ChatGPT users - OpenAI Engineering
+        Blog", "link_flair_richtext": [], "subreddit_name_prefixed": "r/programming",
+        "hidden": false, "pwls": 6, "link_flair_css_class": null, "downs": 0, "top_awarded_type":
+        null, "hide_score": false, "name": "t3_1qkwhb0", "quarantine": false, "link_flair_text_color":
+        "dark", "upvote_ratio": 0.82, "author_flair_background_color": null, "subreddit_type":
+        "public", "ups": 40, "total_awards_received": 0, "media_embed": {}, "author_flair_template_id":
+        null, "is_original_content": false, "user_reports": [], "secure_media": null,
+        "is_reddit_media_domain": false, "is_meta": false, "category": null, "secure_media_embed":
+        {}, "link_flair_text": null, "can_mod_post": false, "score": 40, "approved_by":
+        null, "is_created_from_ads_ui": false, "author_premium": false, "thumbnail":
+        "", "edited": false, "author_flair_css_class": null, "author_flair_richtext":
+        [], "gildings": {}, "content_categories": null, "is_self": false, "mod_note":
+        null, "created": 1769188020.0, "link_flair_type": "text", "wls": 6, "removed_by_category":
+        null, "banned_by": null, "author_flair_type": "text", "domain": "openai.com",
+        "allow_live_comments": false, "selftext_html": null, "likes": null, "suggested_sort":
+        null, "banned_at_utc": null, "url_overridden_by_dest": "https://openai.com/index/scaling-postgresql/",
+        "view_count": null, "archived": false, "no_follow": false, "is_crosspostable":
+        false, "pinned": false, "over_18": false, "all_awardings": [], "awarders":
+        [], "media_only": false, "can_gild": false, "spoiler": false, "locked": false,
+        "author_flair_text": null, "treatment_tags": [], "visited": false, "removed_by":
+        null, "num_reports": null, "distinguished": null, "subreddit_id": "t5_2fwo",
+        "author_is_blocked": false, "mod_reason_by": null, "removal_reason": null,
+        "link_flair_background_color": "", "id": "1qkwhb0", "is_robot_indexable":
+        true, "report_reasons": null, "author": "vladmihalceacom", "discussion_type":
+        null, "num_comments": 2, "send_replies": true, "contest_mode": false, "mod_reports":
+        [], "author_patreon_flair": false, "author_flair_text_color": null, "permalink":
+        "/r/programming/comments/1qkwhb0/scaling_postgresql_to_power_800_million_chatgpt/",
+        "stickied": false, "url": "https://openai.com/index/scaling-postgresql/",
+        "subreddit_subscribers": 6828623, "created_utc": 1769188020.0, "num_crossposts":
+        0, "media": null, "is_video": false}}], "before": null}}'
+  recorded_at: Fri, 23 Jan 2026 21:26:49 GMT
+recorded_with: VCR 6.4.0

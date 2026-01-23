@@ -1,0 +1,25 @@
+default: &default
+  scrape_reddit:
+    class: ScrapeRedditJob
+    schedule: every day at 6am
+
+  scrape_hackernews:
+    class: ScrapeHackernewsJob
+    schedule: every day at 6am
+
+  discard_stale_articles:
+    class: DiscardStaleArticlesJob
+    schedule: every day at 7am
+
+development:
+  <<: *default
+
+test:
+  # No recurring jobs in test
+
+production:
+  <<: *default
+
+  clear_solid_queue_finished_jobs:
+    command: "SolidQueue::Job.clear_finished_in_batches(sleep_between_batches: 0.3)"
+    schedule: every hour at minute 12

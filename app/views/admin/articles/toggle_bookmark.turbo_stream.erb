@@ -1,0 +1,53 @@
+<%= turbo_stream.replace dom_id(@article) do %>
+  <tr class="<%= 'opacity-50' if @article.read? %>">
+    <td class="px-3 py-3">
+      <% if @article.read? %>
+        <span class="text-gray-300 dark:text-gray-600" title="Read">&#10003;</span>
+      <% else %>
+        <span class="w-2 h-2 bg-blue-500 rounded-full inline-block" title="Unread"></span>
+      <% end %>
+    </td>
+    <td class="px-4 py-3">
+      <div class="flex items-start gap-2">
+        <div class="flex-1">
+          <%= link_to admin_article_path(@article),
+               class: "text-sm #{@article.read? ? 'text-gray-500 dark:text-gray-400' : 'text-blue-600 dark:text-blue-400 font-medium'} hover:underline" do %>
+            <%= truncate(@article.title, length: 75) %>
+          <% end %>
+          <div class="text-xs text-gray-400 dark:text-gray-500 mt-0.5"><%= @article.domain %></div>
+        </div>
+        <% if @article.bookmarked? %>
+          <span class="text-yellow-500 flex-shrink-0" title="Bookmarked">&#9733;</span>
+        <% end %>
+      </div>
+    </td>
+    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+      <% if @article.reddit? %>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">
+          r/<%= @article.source_name %>
+        </span>
+      <% else %>
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300">
+          HN
+        </span>
+      <% end %>
+    </td>
+    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400"><%= @article.score %></td>
+    <td class="px-4 py-3 text-sm font-medium text-gray-700 dark:text-gray-300"><%= @article.hot_score %></td>
+    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+      <a href="<%= @article.discussion_url %>" target="_blank" class="hover:underline">
+        <%= @article.comments_count %>
+      </a>
+    </td>
+    <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+      <%= time_ago_in_words(@article.published_at) %> ago
+    </td>
+    <td class="px-4 py-3 text-sm text-right">
+      <%= button_to toggle_bookmark_admin_article_path(@article), method: :post,
+          class: "text-gray-400 dark:text-gray-500 hover:text-yellow-500 p-1",
+          title: @article.bookmarked? ? "Remove bookmark" : "Bookmark" do %>
+        <span class="<%= @article.bookmarked? ? 'text-yellow-500' : '' %>">&#9733;</span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

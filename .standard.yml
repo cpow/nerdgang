@@ -1,0 +1,11 @@
+plugins:
+  - standard-rails
+
+fix: true
+
+ignore:
+  - "db/schema.rb"
+  - "db/**/*_schema.rb"
+  - "bin/*"
+  - "vendor/**/*"
+  - "node_modules/**/*"
