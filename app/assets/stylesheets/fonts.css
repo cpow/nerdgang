@@ -118,6 +118,21 @@ h6,
   letter-spacing: 0.05em;
 }
 
+/* Dark mode heading color - Catppuccin Mocha Sapphire */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .title,
+[data-theme="dark"] .nl-hero-title,
+[data-theme="dark"] .nl-card-title,
+[data-theme="dark"] .nl-article-title,
+[data-theme="dark"] .nl-logo {
+  color: #89dceb;
+}
+
 /* Heading sizes */
 h1 {
   font-size: 3.5rem;

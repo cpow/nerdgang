@@ -1,39 +1,39 @@
 /* Newsletter-specific styles with light/dark theme support */
 
 :root {
-  /* Light Mode Colors */
+  /* Catppuccin Latte (Light Mode) - Higher Contrast */
   --nl-bg-primary: #ffffff;
-  --nl-bg-secondary: #f8fafc;
-  --nl-bg-tertiary: #f1f5f9;
-  --nl-text-primary: #1a202c;
-  --nl-text-secondary: #475569;
-  --nl-text-muted: #64748b;
-  --nl-accent-primary: #2563eb;
-  --nl-accent-hover: #1d4ed8;
-  --nl-cta-bg: #dc2626;
-  --nl-cta-hover: #b91c1c;
-  --nl-border: #e2e8f0;
-  --nl-border-hover: #cbd5e1;
-  --nl-card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --nl-card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --nl-bg-secondary: #eff1f5;
+  --nl-bg-tertiary: #e6e9ef;
+  --nl-text-primary: #11111b;
+  --nl-text-secondary: #4c4f69;
+  --nl-text-muted: #6c6f85;
+  --nl-accent-primary: #179299;
+  --nl-accent-hover: #127378;
+  --nl-cta-bg: #fe640b;
+  --nl-cta-hover: #e55a0a;
+  --nl-border: #bcc0cc;
+  --nl-border-hover: #acb0be;
+  --nl-card-shadow: 0 1px 3px 0 rgb(76 79 105 / 0.15), 0 1px 2px -1px rgb(76 79 105 / 0.1);
+  --nl-card-shadow-hover: 0 4px 6px -1px rgb(76 79 105 / 0.2), 0 2px 4px -2px rgb(76 79 105 / 0.15);
 }
 
 [data-theme="dark"] {
-  /* Dark Mode Colors */
-  --nl-bg-primary: #0f172a;
-  --nl-bg-secondary: #1e293b;
-  --nl-bg-tertiary: #334155;
-  --nl-text-primary: #f1f5f9;
-  --nl-text-secondary: #cbd5e1;
-  --nl-text-muted: #94a3b8;
-  --nl-accent-primary: #3b82f6;
-  --nl-accent-hover: #60a5fa;
-  --nl-cta-bg: #ef4444;
-  --nl-cta-hover: #f87171;
-  --nl-border: #334155;
-  --nl-border-hover: #475569;
-  --nl-card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
-  --nl-card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  /* Catppuccin Mocha (Dark Mode) - Higher Contrast */
+  --nl-bg-primary: #11111b;
+  --nl-bg-secondary: #1e1e2e;
+  --nl-bg-tertiary: #313244;
+  --nl-text-primary: #f5e0dc;
+  --nl-text-secondary: #cdd6f4;
+  --nl-text-muted: #a6adc8;
+  --nl-accent-primary: #94e2d5;
+  --nl-accent-hover: #a6f3e6;
+  --nl-cta-bg: #fab387;
+  --nl-cta-hover: #fcc9a8;
+  --nl-border: #45475a;
+  --nl-border-hover: #585b70;
+  --nl-card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --nl-card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
 }
 
 /* Base Newsletter Styles */
@@ -158,6 +158,10 @@
   transition: all 0.2s ease;
   border: none;
   cursor: pointer;
+}
+
+[data-theme="dark"] .nl-btn-cta {
+  color: #1e1e2e;
 }
 
 .nl-btn-cta:hover {
@@ -686,12 +690,26 @@
   color: inherit;
 }
 
-/* Light mode code variables */
+/* Light mode code variables - Catppuccin Latte */
 :root {
-  --nl-code-bg: #1e293b;
-  --nl-code-text: #e2e8f0;
-  --nl-code-inline-bg: #f1f5f9;
-  --nl-code-inline-text: #1e293b;
+  --nl-code-bg: #dce0e8;
+  --nl-code-text: #4c4f69;
+  --nl-code-inline-bg: #ccd0da;
+  --nl-code-inline-text: #4c4f69;
+
+  /* Lexxy code syntax highlighting - Catppuccin Latte */
+  --lexxy-color-code-bg: #dce0e8;
+  --lexxy-color-code-token-comment: #6c6f85;
+  --lexxy-color-code-token-punctuation: #5c5f77;
+  --lexxy-color-code-token-property: #1e66f5;
+  --lexxy-color-code-token-number: #fe640b;
+  --lexxy-color-code-token-string: #40a02b;
+  --lexxy-color-code-token-selector: #ea76cb;
+  --lexxy-color-code-token-operator: #179299;
+  --lexxy-color-code-token-keyword: #8839ef;
+  --lexxy-color-code-token-function: #1e66f5;
+  --lexxy-color-code-token-variable: #fe640b;
+  --lexxy-color-code-token-att: #d20f39;
 }
 
 /* Dark mode code variables - Catppuccin Mocha theme */
