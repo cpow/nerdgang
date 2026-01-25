@@ -1,6 +1,6 @@
 module Admin
   class ArticlesController < BaseController
-    before_action :set_article, only: [:show, :destroy, :toggle_bookmark, :mark_read]
+    before_action :set_article, only: [:show, :destroy, :toggle_bookmark, :mark_read, :add_to_newsletter]
 
     def index
       @articles = apply_filters(Article.all)
@@ -50,6 +50,20 @@ module Admin
 
     def bookmarks
       @articles = Article.bookmarked.order(bookmarked_at: :desc)
+    end
+
+    def add_to_newsletter
+      newsletter = Newsletter.kept.draft.find(params[:newsletter_id])
+      newsletter_article = newsletter.newsletter_articles.build(article: @article)
+
+      if newsletter_article.save
+        respond_to do |format|
+          format.html { redirect_back_or_to admin_article_path(@article), notice: "Article added to newsletter." }
+          format.turbo_stream { render turbo_stream: turbo_stream.replace("add-to-newsletter-#{@article.id}", partial: "admin/articles/add_to_newsletter_button", locals: {article: @article}) }
+        end
+      else
+        redirect_back_or_to admin_article_path(@article), alert: newsletter_article.errors.full_messages.join(", ")
+      end
     end
 
     private

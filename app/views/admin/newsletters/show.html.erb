@@ -1,0 +1,127 @@
+<% content_for(:title) { "#{@newsletter.title} - News Admin" } %>
+
+<div class="mb-6">
+  <div class="flex justify-between items-center">
+    <div>
+      <h1 class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @newsletter.title %></h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">/<%= @newsletter.slug %></p>
+    </div>
+    <div class="flex items-center gap-3">
+      <% if @newsletter.published? %>
+        <%= button_to "Unpublish", unpublish_admin_newsletter_path(@newsletter),
+            method: :post,
+            class: "px-3 py-2 rounded text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+        <%= link_to "View Public", newsletter_path(@newsletter.slug),
+            target: "_blank",
+            class: "px-3 py-2 rounded text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+      <% else %>
+        <%= button_to "Publish", publish_admin_newsletter_path(@newsletter),
+            method: :post,
+            class: "bg-green-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-green-700" %>
+      <% end %>
+      <%= link_to "Edit", edit_admin_newsletter_path(@newsletter),
+          class: "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200" %>
+    </div>
+  </div>
+</div>
+
+<!-- Status -->
+<div class="mb-6 flex items-center gap-3">
+  <% if @newsletter.published? %>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">
+      Published <%= @newsletter.published_at.strftime("%b %d, %Y at %H:%M") %>
+    </span>
+  <% else %>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+      Draft
+    </span>
+  <% end %>
+</div>
+
+<!-- Blurb -->
+<% if @newsletter.blurb.present? %>
+  <div class="mb-6 bg-white dark:bg-gray-800 p-6 rounded border border-gray-200 dark:border-gray-700">
+    <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Blurb</h2>
+    <div class="prose dark:prose-invert max-w-none">
+      <%= @newsletter.blurb %>
+    </div>
+  </div>
+<% end %>
+
+<!-- Articles -->
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded">
+  <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+    <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Articles (<%= @newsletter.newsletter_articles.count %>)</h2>
+  </div>
+
+  <div id="newsletter-articles">
+    <% if @newsletter.newsletter_articles.any? %>
+      <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <% @newsletter.newsletter_articles.each do |newsletter_article| %>
+            <tr id="<%= dom_id(newsletter_article) %>">
+              <td class="px-4 py-3 w-16 text-center text-gray-400 dark:text-gray-500">
+                <%= newsletter_article.position %>
+              </td>
+              <td class="px-4 py-3">
+                <div class="text-sm font-medium text-gray-900 dark:text-white">
+                  <%= newsletter_article.article.title %>
+                </div>
+                <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  <%= newsletter_article.article.source_name %> &middot; <%= newsletter_article.article.score %> points &middot; <%= newsletter_article.article.comments_count %> comments
+                </div>
+                <% if newsletter_article.commentary.present? %>
+                  <div class="text-sm text-gray-600 dark:text-gray-300 mt-2 italic">
+                    <%= newsletter_article.commentary %>
+                  </div>
+                <% end %>
+              </td>
+              <td class="px-4 py-3 text-right whitespace-nowrap">
+                <div class="flex items-center justify-end gap-2">
+                  <%= button_to move_up_admin_newsletter_article_path(newsletter_article),
+                      method: :post,
+                      class: "p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200",
+                      title: "Move up" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                  <% end %>
+                  <%= button_to move_down_admin_newsletter_article_path(newsletter_article),
+                      method: :post,
+                      class: "p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200",
+                      title: "Move down" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  <% end %>
+                  <%= button_to admin_newsletter_article_path(newsletter_article),
+                      method: :delete,
+                      class: "p-1 text-red-400 hover:text-red-600",
+                      title: "Remove",
+                      data: { turbo_confirm: "Remove this article from the newsletter?" } do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <div class="px-6 py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        No articles added yet. Browse <%= link_to "Articles", admin_articles_path, class: "text-blue-600 dark:text-blue-400 hover:underline" %> and click "Add to Newsletter" to add articles.
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Danger Zone -->
+<div class="mt-6 bg-white dark:bg-gray-800 p-4 rounded border border-red-200 dark:border-red-800">
+  <h3 class="text-sm font-medium text-red-800 dark:text-red-300 mb-2">Danger Zone</h3>
+  <%= button_to "Delete Newsletter", admin_newsletter_path(@newsletter),
+      method: :delete,
+      class: "text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300",
+      data: { turbo_confirm: "Are you sure you want to delete this newsletter?" } %>
+</div>

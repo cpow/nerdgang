@@ -3,6 +3,9 @@ class Article < ApplicationRecord
   include RedditScrapable
   include HackernewsScrapable
 
+  has_many :newsletter_articles, dependent: :destroy
+  has_many :newsletters, through: :newsletter_articles
+
   # Hide discarded articles by default
   default_scope -> { kept }
 

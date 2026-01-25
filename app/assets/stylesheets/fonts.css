@@ -1,0 +1,144 @@
+/* Google Fonts - Figtree */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* Override Lexxy font variable */
+:root {
+  --lexxy-font-base: 'Figtree', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Cartridge Font Family */
+
+@font-face {
+  font-family: 'Cartridge';
+  src: url("Cartridge-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge';
+  src: url("Cartridge-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge';
+  src: url("Cartridge-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge';
+  src: url("Cartridge-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge';
+  src: url("Cartridge-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cartridge Soft variant (rounded corners) */
+@font-face {
+  font-family: 'Cartridge Soft';
+  src: url("Cartridge-LightSoft.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge Soft';
+  src: url("Cartridge-RegularSoft.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge Soft';
+  src: url("Cartridge-SemiboldSoft.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge Soft';
+  src: url("Cartridge-BoldSoft.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cartridge Soft';
+  src: url("Cartridge-BlackSoft.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base font size increase */
+html {
+  font-size: 18px;
+}
+
+/* Apply Figtree as the base body font */
+body {
+  font-family: 'Figtree', sans-serif;
+}
+
+/* Apply Cartridge to titles, headings, and hero elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title,
+.hero,
+.hero-title,
+.hero-heading,
+[class*="hero"] h1,
+[class*="hero"] h2,
+[class*="hero"] .title {
+  font-family: 'Cartridge', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Heading sizes */
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+h3 {
+  font-size: 2.25rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}

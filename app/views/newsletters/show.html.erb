@@ -1,0 +1,94 @@
+<% content_for(:title) { "#{@newsletter.title} - Power Dev Newsletter" } %>
+<% content_for(:description) { @newsletter.blurb.present? ? truncate(@newsletter.blurb.to_plain_text, length: 160) : "Weekly developer news digest from Power Dev." } %>
+
+<div class="nl-main">
+  <!-- Back Link -->
+  <%= link_to newsletters_path, class: "nl-back-link" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"/>
+    </svg>
+    All Issues
+  <% end %>
+
+  <article>
+    <!-- Header -->
+    <header class="nl-article-header">
+      <div class="nl-article-date">
+        <%= @newsletter.published_at.strftime("%B %d, %Y") %>
+      </div>
+      <h1 class="nl-article-title"><%= @newsletter.title %></h1>
+    </header>
+
+    <!-- Blurb -->
+    <% if @newsletter.blurb.present? %>
+      <div class="nl-blurb">
+        <%= @newsletter.blurb %>
+      </div>
+    <% end %>
+
+    <!-- Articles Section -->
+    <% if @newsletter.newsletter_articles.any? %>
+      <section class="nl-articles-section">
+        <h2 class="nl-section-label">This Week's Top Stories</h2>
+
+        <% @newsletter.newsletter_articles.each do |newsletter_article| %>
+          <% article = newsletter_article.article %>
+          <div class="nl-article-item">
+            <div class="nl-article-item-header">
+              <% if article.reddit? %>
+                <span class="nl-source-badge nl-source-badge-reddit">Reddit</span>
+              <% else %>
+                <span class="nl-source-badge nl-source-badge-hn">HN</span>
+              <% end %>
+              <div>
+                <a href="<%= article.url %>" target="_blank" rel="noopener" class="nl-article-item-title">
+                  <%= article.title %>
+                </a>
+                <div class="nl-article-item-meta">
+                  <%= article.domain %>
+                  &middot;
+                  <%= article.score %> points
+                  &middot;
+                  <a href="<%= article.discussion_url %>" target="_blank" rel="noopener">
+                    <%= pluralize(article.comments_count, "comment") %>
+                  </a>
+                  <% if article.reddit? %>
+                    on r/<%= article.source_name %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <% if newsletter_article.commentary.present? %>
+              <p class="nl-article-commentary">
+                <%= newsletter_article.commentary %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+      </section>
+    <% end %>
+
+    <!-- Bottom CTA Banner -->
+    <div class="nl-cta-banner" id="subscribe">
+      <h3 class="nl-cta-banner-title">Enjoyed this issue?</h3>
+      <p class="nl-cta-banner-subtitle">Get the next one delivered straight to your inbox.</p>
+
+      <form class="nl-subscribe-form" action="#" method="post">
+        <input
+          type="email"
+          name="email"
+          class="nl-email-input"
+          placeholder="Enter your email"
+          required
+          aria-label="Email address"
+        >
+        <button type="submit" class="nl-btn-cta nl-btn-cta-lg">Subscribe Free</button>
+      </form>
+
+      <p class="nl-social-proof">
+        <strong>100% free.</strong> No spam. Unsubscribe anytime.
+      </p>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,40 @@
+<%= form_with model: [:admin, newsletter], class: "space-y-6" do |f| %>
+  <% if newsletter.errors.any? %>
+    <div class="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 p-4 rounded">
+      <h3 class="font-medium mb-2"><%= pluralize(newsletter.errors.count, "error") %> prohibited this newsletter from being saved:</h3>
+      <ul class="list-disc list-inside text-sm">
+        <% newsletter.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :title,
+        class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
+        placeholder: "Weekly Digest #42" %>
+  </div>
+
+  <div>
+    <%= f.label :slug, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :slug,
+        class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500",
+        placeholder: "weekly-digest-42" %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Leave blank to auto-generate from title. Must be lowercase with hyphens only.</p>
+  </div>
+
+  <div>
+    <%= f.label :blurb, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.rich_text_area :blurb %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Introduction text for this newsletter. Supports Markdown shortcuts and rich formatting.</p>
+  </div>
+
+  <div class="flex items-center gap-4">
+    <%= f.submit newsletter.persisted? ? "Update Newsletter" : "Create Newsletter",
+        class: "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 cursor-pointer" %>
+    <%= link_to "Cancel", newsletter.persisted? ? admin_newsletter_path(newsletter) : admin_newsletters_path,
+        class: "text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" %>
+  </div>
+<% end %>

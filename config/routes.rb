@@ -7,13 +7,31 @@ Rails.application.routes.draw do
       member do
         post :toggle_bookmark
         post :mark_read
+        post :add_to_newsletter
       end
       collection do
         post :refresh
         get :bookmarks
       end
     end
+
+    resources :newsletters do
+      member do
+        post :publish
+        post :unpublish
+      end
+    end
+
+    resources :newsletter_articles, only: [:create, :destroy] do
+      member do
+        post :move_up
+        post :move_down
+      end
+    end
   end
+
+  # Public newsletters
+  resources :newsletters, only: [:index, :show], param: :slug
 
   # Health check
   get "up" => "rails/health#show", :as => :rails_health_check

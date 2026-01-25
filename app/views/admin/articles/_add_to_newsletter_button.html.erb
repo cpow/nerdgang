@@ -1,0 +1,40 @@
+<% draft_newsletters = Newsletter.kept.draft.by_recent %>
+<% article_newsletter_ids = article.newsletter_articles.pluck(:newsletter_id) %>
+
+<div id="add-to-newsletter-<%= article.id %>" data-controller="dropdown">
+  <% if draft_newsletters.any? %>
+    <div class="relative inline-block text-left">
+      <button type="button"
+              data-action="click->dropdown#toggle"
+              class="inline-flex items-center gap-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-3 py-2 rounded text-sm hover:bg-gray-50 dark:hover:bg-gray-700">
+        Add to Newsletter
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      <div data-dropdown-target="menu"
+           class="hidden absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-10">
+        <div class="py-1">
+          <% draft_newsletters.each do |newsletter| %>
+            <% if article_newsletter_ids.include?(newsletter.id) %>
+              <div class="px-4 py-2 text-sm text-gray-400 dark:text-gray-500 flex items-center justify-between">
+                <%= newsletter.title %>
+                <span class="text-xs text-green-600 dark:text-green-400">Added</span>
+              </div>
+            <% else %>
+              <%= button_to add_to_newsletter_admin_article_path(article, newsletter_id: newsletter.id),
+                  method: :post,
+                  class: "block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" do %>
+                <%= newsletter.title %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <%= link_to "Create Newsletter First", new_admin_newsletter_path,
+        class: "inline-flex items-center gap-1 border border-gray-300 dark:border-gray-600 text-gray-500 dark:text-gray-400 px-3 py-2 rounded text-sm hover:bg-gray-50 dark:hover:bg-gray-700" %>
+  <% end %>
+</div>
