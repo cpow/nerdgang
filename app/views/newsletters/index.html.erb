@@ -33,31 +33,33 @@
   <h2 class="nl-section-label">Latest Issues</h2>
 
   <% if @newsletters.any? %>
-    <% @newsletters.each do |newsletter| %>
-      <%= link_to newsletter_path(newsletter.slug), class: "nl-card-link" do %>
-        <article class="nl-card <%= 'nl-card-with-image' if newsletter.cover_image.attached? %>">
-          <% if newsletter.cover_image.attached? %>
-            <div class="nl-card-image">
-              <%= image_tag newsletter.cover_image, alt: newsletter.title %>
-            </div>
-          <% end %>
-          <div class="nl-card-content">
-            <div class="nl-card-date">
-              <%= newsletter.published_at.strftime("%B %d, %Y") %>
-            </div>
-            <h3 class="nl-card-title"><%= newsletter.title %></h3>
-            <div class="nl-card-meta">
-              <%= pluralize(newsletter.articles.count, "article") %> curated this week
-            </div>
-            <% if newsletter.blurb.present? %>
-              <p class="nl-card-excerpt">
-                <%= truncate(newsletter.blurb.to_plain_text, length: 180) %>
-              </p>
+    <div class="nl-cards-grid">
+      <% @newsletters.each do |newsletter| %>
+        <%= link_to newsletter_path(newsletter.slug), class: "nl-card-link" do %>
+          <article class="nl-card <%= 'nl-card-with-image' if newsletter.cover_image.attached? %>">
+            <% if newsletter.cover_image.attached? %>
+              <div class="nl-card-image">
+                <%= image_tag newsletter.cover_image, alt: newsletter.title %>
+              </div>
             <% end %>
-          </div>
-        </article>
+            <div class="nl-card-content">
+              <div class="nl-card-date">
+                <%= newsletter.published_at.strftime("%B %d, %Y") %>
+              </div>
+              <h3 class="nl-card-title"><%= newsletter.title %></h3>
+              <div class="nl-card-meta">
+                <%= pluralize(newsletter.articles.count, "article") %> curated this week
+              </div>
+              <% if newsletter.blurb.present? %>
+                <p class="nl-card-excerpt">
+                  <%= truncate(newsletter.blurb.to_plain_text, length: 180) %>
+                </p>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   <% else %>
     <div class="nl-empty-state">
       <p>No newsletters published yet. Subscribe above to be notified when the first issue drops!</p>

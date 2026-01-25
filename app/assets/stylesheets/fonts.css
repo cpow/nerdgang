@@ -89,14 +89,15 @@
   font-display: swap;
 }
 
-/* Base font size increase */
+/* Base font size - larger like Basecamp */
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 /* Apply Figtree as the base body font */
 body {
   font-family: 'Figtree', sans-serif;
+  line-height: 1.6;
 }
 
 /* Apply Cartridge to titles, headings, and hero elements */

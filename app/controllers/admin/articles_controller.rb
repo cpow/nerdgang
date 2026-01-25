@@ -53,13 +53,13 @@ module Admin
     end
 
     def add_to_newsletter
-      newsletter = Newsletter.kept.draft.find(params[:newsletter_id])
-      newsletter_article = newsletter.newsletter_articles.build(article: @article)
+      @newsletter = Newsletter.kept.draft.find(params[:newsletter_id])
+      newsletter_article = @newsletter.newsletter_articles.build(article: @article)
 
       if newsletter_article.save
         respond_to do |format|
-          format.html { redirect_back_or_to admin_article_path(@article), notice: "Article added to newsletter." }
-          format.turbo_stream { render turbo_stream: turbo_stream.replace("add-to-newsletter-#{@article.id}", partial: "admin/articles/add_to_newsletter_button", locals: {article: @article}) }
+          format.html { redirect_back_or_to admin_article_path(@article), notice: "Article added to #{@newsletter.title}." }
+          format.turbo_stream { flash.now[:notice] = "Article added to #{@newsletter.title}." }
         end
       else
         redirect_back_or_to admin_article_path(@article), alert: newsletter_article.errors.full_messages.join(", ")

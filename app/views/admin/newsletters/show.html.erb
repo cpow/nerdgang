@@ -3,7 +3,7 @@
 <div class="mb-6">
   <div class="flex justify-between items-center">
     <div>
-      <h1 class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @newsletter.title %></h1>
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @newsletter.title %></h2>
       <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">/<%= @newsletter.slug %></p>
     </div>
     <div class="flex items-center gap-3">
@@ -41,7 +41,7 @@
 <!-- Blurb -->
 <% if @newsletter.blurb.present? %>
   <div class="mb-6 bg-white dark:bg-gray-800 p-6 rounded border border-gray-200 dark:border-gray-700">
-    <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Blurb</h2>
+    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Blurb</h3>
     <div class="prose dark:prose-invert max-w-none">
       <%= @newsletter.blurb %>
     </div>
@@ -51,7 +51,7 @@
 <!-- Articles -->
 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded">
   <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
-    <h2 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Articles (<%= @newsletter.newsletter_articles.count %>)</h2>
+    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Articles (<%= @newsletter.newsletter_articles.count %>)</h3>
   </div>
 
   <div id="newsletter-articles">
@@ -119,7 +119,7 @@
 
 <!-- Danger Zone -->
 <div class="mt-6 bg-white dark:bg-gray-800 p-4 rounded border border-red-200 dark:border-red-800">
-  <h3 class="text-sm font-medium text-red-800 dark:text-red-300 mb-2">Danger Zone</h3>
+  <h4 class="text-sm font-medium text-red-800 dark:text-red-300 mb-2">Danger Zone</h4>
   <%= button_to "Delete Newsletter", admin_newsletter_path(@newsletter),
       method: :delete,
       class: "text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300",

@@ -67,7 +67,7 @@
 .nl-logo {
   font-family: 'Cartridge', sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--nl-text-primary);
   text-decoration: none;
   letter-spacing: 0.05em;
@@ -190,7 +190,7 @@
 .nl-hero-title {
   font-family: 'Cartridge', sans-serif;
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--nl-text-primary);
   line-height: 1.2;
   letter-spacing: 0.05em;
@@ -205,10 +205,10 @@
 }
 
 .nl-hero-subtitle {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: var(--nl-text-secondary);
   margin-bottom: 2rem;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 /* Subscribe Form */
@@ -262,7 +262,7 @@
 
 /* Main Content */
 .nl-main {
-  max-width: 48rem;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 3rem 1.5rem;
 }
@@ -277,14 +277,29 @@
   margin-bottom: 1.5rem;
 }
 
+/* Newsletter Cards Grid */
+.nl-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .nl-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Newsletter Card */
 .nl-card {
   background-color: var(--nl-bg-primary);
   border: 1px solid var(--nl-border);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  margin-bottom: 1rem;
   transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   box-shadow: var(--nl-card-shadow);
 }
 
@@ -296,7 +311,15 @@
 
 .nl-card-link {
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nl-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .nl-card-date {
@@ -310,7 +333,7 @@
 .nl-card-title {
   font-family: 'Cartridge', sans-serif;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 900;
   color: var(--nl-text-primary);
   margin-bottom: 0.5rem;
   line-height: 1.4;
@@ -329,9 +352,10 @@
 }
 
 .nl-card-excerpt {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   color: var(--nl-text-secondary);
   line-height: 1.6;
+  flex: 1;
 }
 
 /* Card with Image */
@@ -394,10 +418,10 @@
 .nl-article-title {
   font-family: 'Cartridge', sans-serif;
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--nl-text-primary);
   line-height: 1.2;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
@@ -409,9 +433,9 @@
 
 /* Blurb Section */
 .nl-blurb {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   color: var(--nl-text-secondary);
-  line-height: 1.75;
+  line-height: 1.7;
   margin-bottom: 2.5rem;
 }
 
@@ -719,15 +743,15 @@
 
 /* Light mode code variables - Catppuccin Latte */
 :root {
-  --nl-code-bg: #dce0e8;
+  --nl-code-bg: #e6e9ef;
   --nl-code-text: #4c4f69;
-  --nl-code-inline-bg: #ccd0da;
+  --nl-code-inline-bg: #dce0e8;
   --nl-code-inline-text: #4c4f69;
 
   /* Lexxy code syntax highlighting - Catppuccin Latte */
-  --lexxy-color-code-bg: #dce0e8;
-  --lexxy-color-code-token-comment: #6c6f85;
-  --lexxy-color-code-token-punctuation: #5c5f77;
+  --lexxy-color-code-bg: #e6e9ef;
+  --lexxy-color-code-token-comment: #9ca0b0;
+  --lexxy-color-code-token-punctuation: #6c6f85;
   --lexxy-color-code-token-property: #1e66f5;
   --lexxy-color-code-token-number: #fe640b;
   --lexxy-color-code-token-string: #40a02b;
@@ -739,16 +763,16 @@
   --lexxy-color-code-token-att: #d20f39;
 }
 
-/* Dark mode code variables - Catppuccin Mocha theme */
+/* Dark mode code variables - Catppuccin Mocha theme (higher contrast) */
 [data-theme="dark"] {
-  --nl-code-bg: #313244;
+  --nl-code-bg: #181825;
   --nl-code-text: #cdd6f4;
-  --nl-code-inline-bg: #45475a;
+  --nl-code-inline-bg: #313244;
   --nl-code-inline-text: #cdd6f4;
 
   /* Lexxy code syntax highlighting - Catppuccin Mocha */
-  --lexxy-color-code-bg: #313244;
-  --lexxy-color-code-token-comment: #6c7086;
+  --lexxy-color-code-bg: #181825;
+  --lexxy-color-code-token-comment: #9399b2;
   --lexxy-color-code-token-punctuation: #bac2de;
   --lexxy-color-code-token-property: #89b4fa;
   --lexxy-color-code-token-number: #fab387;
@@ -774,18 +798,18 @@
   color: var(--nl-text-muted);
 }
 
-/* Syntax highlighting tokens - dark mode optimized */
+/* Syntax highlighting tokens - Catppuccin Latte (Light Mode) */
 .nl-blurb .trix-content pre .token.comment,
 .nl-blurb .trix-content pre .token.prolog,
 .nl-blurb .trix-content pre .token.doctype,
 .nl-blurb .trix-content pre .token.cdata,
 .nl-blurb .lexxy-content pre .token.comment {
-  color: #8b949e;
+  color: #9ca0b0;
 }
 
 .nl-blurb .trix-content pre .token.punctuation,
 .nl-blurb .lexxy-content pre .token.punctuation {
-  color: #c9d1d9;
+  color: #6c6f85;
 }
 
 .nl-blurb .trix-content pre .token.property,
@@ -796,7 +820,7 @@
 .nl-blurb .trix-content pre .token.symbol,
 .nl-blurb .lexxy-content pre .token.property,
 .nl-blurb .lexxy-content pre .token.number {
-  color: #79c0ff;
+  color: #1e66f5;
 }
 
 .nl-blurb .trix-content pre .token.selector,
@@ -806,32 +830,92 @@
 .nl-blurb .trix-content pre .token.builtin,
 .nl-blurb .lexxy-content pre .token.string,
 .nl-blurb .lexxy-content pre .token.selector {
-  color: #7ee787;
+  color: #40a02b;
 }
 
 .nl-blurb .trix-content pre .token.operator,
 .nl-blurb .trix-content pre .token.entity,
 .nl-blurb .trix-content pre .token.url,
 .nl-blurb .lexxy-content pre .token.operator {
-  color: #ff7b72;
+  color: #179299;
 }
 
 .nl-blurb .trix-content pre .token.atrule,
 .nl-blurb .trix-content pre .token.attr-value,
 .nl-blurb .trix-content pre .token.keyword,
 .nl-blurb .lexxy-content pre .token.keyword {
-  color: #ff7b72;
+  color: #8839ef;
 }
 
 .nl-blurb .trix-content pre .token.function,
 .nl-blurb .trix-content pre .token.class-name,
 .nl-blurb .lexxy-content pre .token.function {
-  color: #d2a8ff;
+  color: #1e66f5;
 }
 
 .nl-blurb .trix-content pre .token.variable,
 .nl-blurb .lexxy-content pre .token.variable {
-  color: #ffa657;
+  color: #fe640b;
+}
+
+/* Syntax highlighting tokens - Catppuccin Mocha (Dark Mode) */
+[data-theme="dark"] .nl-blurb .trix-content pre .token.comment,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.prolog,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.doctype,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.cdata,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.comment {
+  color: #9399b2;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.punctuation,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.punctuation {
+  color: #bac2de;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.property,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.tag,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.boolean,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.number,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.constant,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.symbol,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.property,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.number {
+  color: #89b4fa;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.selector,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.attr-name,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.string,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.char,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.builtin,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.string,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.selector {
+  color: #a6e3a1;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.operator,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.entity,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.url,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.operator {
+  color: #89dceb;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.atrule,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.attr-value,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.keyword,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.keyword {
+  color: #cba6f7;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.function,
+[data-theme="dark"] .nl-blurb .trix-content pre .token.class-name,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.function {
+  color: #89b4fa;
+}
+
+[data-theme="dark"] .nl-blurb .trix-content pre .token.variable,
+[data-theme="dark"] .nl-blurb .lexxy-content pre .token.variable {
+  color: #fab387;
 }
 
 /* Images in rich text */

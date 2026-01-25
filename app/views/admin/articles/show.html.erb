@@ -5,11 +5,11 @@
 </div>
 
 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded p-6">
-  <h1 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+  <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
     <a href="<%= @article.url %>" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400">
       <%= @article.title %>
     </a>
-  </h1>
+  </h2>
 
   <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
     <div>
@@ -69,3 +69,6 @@
         data: { turbo_confirm: "Delete this article?" } %>
   </div>
 </div>
+
+<!-- Newsletters Section -->
+<%= render "admin/articles/newsletters_section", article: @article %>

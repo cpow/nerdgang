@@ -1,7 +1,7 @@
 <% content_for(:title) { "Dashboard - News Admin" } %>
 
 <div class="mb-6">
-  <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">Dashboard</h1>
+  <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Dashboard</h2>
 </div>
 
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
@@ -36,7 +36,7 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
   <div>
-    <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Recent Articles</h2>
+    <h3 class="text-base font-medium text-gray-900 dark:text-white mb-4">Recent Articles</h3>
     <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded overflow-hidden">
       <% if @recent_articles.any? %>
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -60,7 +60,7 @@
   </div>
 
   <div>
-    <h2 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Top Articles This Week</h2>
+    <h3 class="text-base font-medium text-gray-900 dark:text-white mb-4">Top Articles This Week</h3>
     <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded overflow-hidden">
       <% if @top_articles.any? %>
         <ul class="divide-y divide-gray-200 dark:divide-gray-700">
