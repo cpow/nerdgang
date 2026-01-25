@@ -56,7 +56,7 @@ module Admin
     end
 
     def newsletter_params
-      params.require(:newsletter).permit(:title, :slug, :blurb)
+      params.require(:newsletter).permit(:title, :slug, :blurb, :cover_image)
     end
   end
 end

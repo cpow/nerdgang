@@ -26,6 +26,19 @@
   </div>
 
   <div>
+    <%= f.label :cover_image, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <% if newsletter.cover_image.attached? %>
+      <div class="mb-2">
+        <%= image_tag newsletter.cover_image, class: "max-w-xs rounded border border-gray-300 dark:border-gray-600" %>
+      </div>
+    <% end %>
+    <%= f.file_field :cover_image,
+        accept: "image/*",
+        class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Cover image displayed on newsletter cards. Recommended size: 800x400px.</p>
+  </div>
+
+  <div>
     <%= f.label :blurb, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
     <%= f.rich_text_area :blurb %>
     <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Introduction text for this newsletter. Supports Markdown shortcuts and rich formatting.</p>

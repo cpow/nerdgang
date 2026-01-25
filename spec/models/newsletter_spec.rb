@@ -115,6 +115,18 @@ RSpec.describe Newsletter, type: :model do
     end
   end
 
+  describe "cover_image" do
+    it "can have a cover image attached" do
+      newsletter = create(:newsletter)
+      newsletter.cover_image.attach(
+        io: StringIO.new("fake image data"),
+        filename: "cover.jpg",
+        content_type: "image/jpeg"
+      )
+      expect(newsletter.cover_image).to be_attached
+    end
+  end
+
   describe "scopes" do
     describe ".by_recent" do
       it "orders by created_at descending" do

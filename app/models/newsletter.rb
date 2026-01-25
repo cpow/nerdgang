@@ -3,6 +3,7 @@ class Newsletter < ApplicationRecord
   include Publishable
 
   has_rich_text :blurb
+  has_one_attached :cover_image
   has_many :newsletter_articles, -> { order(position: :asc) }, dependent: :destroy
   has_many :articles, through: :newsletter_articles
 

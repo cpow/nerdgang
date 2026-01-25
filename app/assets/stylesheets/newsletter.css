@@ -334,6 +334,33 @@
   line-height: 1.6;
 }
 
+/* Card with Image */
+.nl-card-with-image {
+  padding: 0;
+  overflow: hidden;
+}
+
+.nl-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.nl-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.nl-card:hover .nl-card-image img {
+  transform: scale(1.05);
+}
+
+.nl-card-with-image .nl-card-content {
+  padding: 1.5rem;
+}
+
 /* Show Page Styles */
 .nl-back-link {
   font-size: 0.875rem;
