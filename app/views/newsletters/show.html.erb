@@ -1,15 +1,24 @@
 <% content_for(:title) { "#{@newsletter.title} - Power Dev Newsletter" } %>
 <% content_for(:description) { @newsletter.blurb.present? ? truncate(@newsletter.blurb.to_plain_text, length: 160) : "Weekly developer news digest from Power Dev." } %>
 
-<div class="nl-main">
-  <!-- Back Link -->
-  <%= link_to newsletters_path, class: "nl-back-link" do %>
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m15 18-6-6 6-6"/>
-    </svg>
-    All Issues
-  <% end %>
+<!-- Scroll Progress Bar -->
+<div class="nl-scroll-progress" data-controller="scroll-progress">
+  <div class="nl-scroll-progress-bar" data-scroll-progress-target="bar"></div>
+</div>
 
+<!-- Breadcrumb -->
+<div class="nl-breadcrumb">
+  <div class="nl-breadcrumb-inner">
+    <%= link_to newsletters_path, class: "nl-breadcrumb-link" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m15 18-6-6 6-6"/>
+      </svg>
+      All Issues
+    <% end %>
+  </div>
+</div>
+
+<div class="nl-main-article">
   <article>
     <!-- Header -->
     <header class="nl-article-header">
@@ -74,21 +83,16 @@
       <h3 class="nl-cta-banner-title">Enjoyed this issue?</h3>
       <p class="nl-cta-banner-subtitle">Get the next one delivered straight to your inbox.</p>
 
-      <form class="nl-subscribe-form" action="#" method="post">
-        <input
-          type="email"
-          name="email"
-          class="nl-email-input"
-          placeholder="Enter your email"
-          required
-          aria-label="Email address"
-        >
-        <button type="submit" class="nl-btn-cta nl-btn-cta-lg">Subscribe Free</button>
-      </form>
-
-      <p class="nl-social-proof">
-        <strong>100% free.</strong> No spam. Unsubscribe anytime.
-      </p>
+      <div id="subscribe-form" data-controller="subscribe-form">
+        <%= form_with url: subscribers_path, class: "nl-subscribe-form" do |f| %>
+          <%= f.email_field :email, name: "subscriber[email]", class: "nl-email-input", placeholder: "Enter your email", required: true, aria: { label: "Email address" } %>
+          <%= f.submit "Subscribe Free", class: "nl-btn-cta nl-btn-cta-lg" %>
+        <% end %>
+        <div id="subscribe-form-error"></div>
+        <p class="nl-social-proof">
+          <strong>100% free.</strong> No spam. Unsubscribe anytime.
+        </p>
+      </div>
     </div>
   </article>
 </div>

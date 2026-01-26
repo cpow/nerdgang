@@ -89,9 +89,9 @@
   font-display: swap;
 }
 
-/* Base font size - larger like Basecamp */
+/* Base font size - responsive, larger like Basecamp */
 html {
-  font-size: 20px;
+  font-size: clamp(16px, 1.25vw + 12px, 20px);
 }
 
 /* Apply Figtree as the base body font */
@@ -134,27 +134,27 @@ h6,
   color: #ffffff;
 }
 
-/* Heading sizes */
+/* Heading sizes - responsive */
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
 }
 
 h2 {
-  font-size: 2.75rem;
+  font-size: clamp(1.75rem, 4vw + 0.75rem, 2.75rem);
 }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
 }
 
 h5 {
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
 }
 
 h6 {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
 }

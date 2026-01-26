@@ -28,11 +28,6 @@
       <div class="nl-header-inner">
         <%= link_to "Power Dev", newsletters_path, class: "nl-logo" %>
 
-        <nav class="nl-nav">
-          <%= link_to "Archive", newsletters_path, class: "nl-nav-link" %>
-          <%= link_to "Main Site", root_path, class: "nl-nav-link" %>
-        </nav>
-
         <div class="nl-header-actions">
           <button type="button" class="nl-theme-toggle" data-action="click->newsletter-theme#toggle" aria-label="Toggle dark mode">
             <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -58,11 +53,6 @@
         <div>
           <span class="nl-footer-brand">Power Dev</span>
           <span class="nl-footer-tagline"> - Your weekly developer news digest</span>
-        </div>
-
-        <div class="nl-footer-links">
-          <%= link_to "Archive", newsletters_path, class: "nl-footer-link" %>
-          <%= link_to "Main Site", root_path, class: "nl-footer-link" %>
         </div>
 
         <div class="nl-footer-copyright">

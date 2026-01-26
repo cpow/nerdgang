@@ -4,27 +4,22 @@
 <!-- Hero Section -->
 <section class="nl-hero" id="subscribe">
   <div class="nl-hero-inner">
-    <h1 class="nl-hero-title">Your Weekly Developer News Digest</h1>
+    <h1 class="nl-hero-title">Weekly curated tech news that doesn't suck</h1>
     <p class="nl-hero-subtitle">
       Curated tech news, insights, and analysis delivered to your inbox every week.
       Skip the noise. Stay informed. Join developers who value their time.
     </p>
 
-    <form class="nl-subscribe-form" action="#" method="post">
-      <input
-        type="email"
-        name="email"
-        class="nl-email-input"
-        placeholder="Enter your email"
-        required
-        aria-label="Email address"
-      >
-      <button type="submit" class="nl-btn-cta nl-btn-cta-lg">Subscribe Free</button>
-    </form>
-
-    <p class="nl-social-proof">
-      <strong>100% free.</strong> No spam. Unsubscribe anytime.
-    </p>
+    <div id="subscribe-form" data-controller="subscribe-form">
+      <%= form_with url: subscribers_path, class: "nl-subscribe-form" do |f| %>
+        <%= f.email_field :email, name: "subscriber[email]", class: "nl-email-input", placeholder: "Enter your email", required: true, aria: { label: "Email address" } %>
+        <%= f.submit "Subscribe Free", class: "nl-btn-cta nl-btn-cta-lg" %>
+      <% end %>
+      <div id="subscribe-form-error"></div>
+      <p class="nl-social-proof">
+        <strong>100% free.</strong> No spam. Unsubscribe anytime.
+      </p>
+    </div>
   </div>
 </section>
 

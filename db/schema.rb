@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_25_033346) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_26_222612) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -95,6 +95,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_25_033346) do
     t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_newsletters_on_slug", unique: true
+  end
+
+  create_table "subscribers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "discarded_at"
+    t.string "email", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_subscribers_on_discarded_at"
+    t.index ["email"], name: "index_subscribers_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

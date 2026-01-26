@@ -28,10 +28,13 @@ Rails.application.routes.draw do
         post :move_down
       end
     end
+
+    resources :subscribers, only: [:index]
   end
 
   # Public newsletters
   resources :newsletters, only: [:index, :show], param: :slug
+  resources :subscribers, only: [:create]
 
   # Health check
   get "up" => "rails/health#show", :as => :rails_health_check

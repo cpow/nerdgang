@@ -4,6 +4,56 @@
   <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Dashboard</h2>
 </div>
 
+<!-- Subscriber Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <div class="bg-white dark:bg-gray-800 p-5 rounded border border-gray-200 dark:border-gray-700">
+    <div class="text-sm text-gray-500 dark:text-gray-400">Total Subscribers</div>
+    <div class="text-3xl font-semibold text-gray-900 dark:text-white"><%= @stats[:total_subscribers] %></div>
+  </div>
+  <div class="bg-white dark:bg-gray-800 p-5 rounded border border-gray-200 dark:border-gray-700">
+    <div class="text-sm text-gray-500 dark:text-gray-400">New Today</div>
+    <div class="text-3xl font-semibold text-gray-900 dark:text-white"><%= @stats[:subscribers_today] %></div>
+  </div>
+  <div class="bg-white dark:bg-gray-800 p-5 rounded border border-gray-200 dark:border-gray-700">
+    <div class="text-sm text-gray-500 dark:text-gray-400">This Week</div>
+    <div class="text-3xl font-semibold text-gray-900 dark:text-white"><%= @stats[:subscribers_this_week] %></div>
+  </div>
+</div>
+
+<!-- Subscriber Growth Chart -->
+<div class="bg-white dark:bg-gray-800 p-5 rounded border border-gray-200 dark:border-gray-700 mb-8">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-base font-medium text-gray-900 dark:text-white">Subscriber Growth</h3>
+    <span class="text-xs text-gray-500 dark:text-gray-400">Last 30 days</span>
+  </div>
+
+  <% max_count = @subscriber_daily_signups.map { |d| d[:count] }.max || 1 %>
+  <div class="relative" data-controller="bar-chart" style="height: 160px;">
+    <div data-bar-chart-target="tooltip"
+         class="hidden absolute text-xs bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-2 py-1 rounded pointer-events-none -translate-x-1/2 -translate-y-full whitespace-nowrap"
+         style="z-index: 10;">
+    </div>
+    <div class="flex items-end gap-px h-full">
+      <% @subscriber_daily_signups.each do |day| %>
+        <% height_pct = max_count > 0 ? (day[:count].to_f / max_count * 100).round : 0 %>
+        <div class="flex-1 flex flex-col justify-end h-full cursor-pointer group"
+             data-action="mouseenter->bar-chart#show mouseleave->bar-chart#hide"
+             data-label="<%= day[:date].strftime("%b %d") %>"
+             data-value="<%= pluralize(day[:count], 'signup') %>">
+          <div class="w-full rounded-t bg-blue-500 dark:bg-blue-400 group-hover:bg-blue-600 dark:group-hover:bg-blue-300 transition-colors"
+               style="height: <%= height_pct > 0 ? [height_pct, 4].max : 0 %>%; min-height: <%= day[:count] > 0 ? '3px' : '0' %>;">
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex justify-between mt-2 text-xs text-gray-400 dark:text-gray-500">
+    <span><%= 29.days.ago.to_date.strftime("%b %d") %></span>
+    <span>Today</span>
+  </div>
+</div>
+
+<!-- Article Stats -->
 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
   <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
     <div class="text-sm text-gray-500 dark:text-gray-400">Total Articles</div>
