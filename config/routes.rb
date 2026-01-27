@@ -39,6 +39,6 @@ Rails.application.routes.draw do
   # Health check
   get "up" => "rails/health#show", :as => :rails_health_check
 
-  # Root redirects to admin for now
-  root to: redirect("/admin")
+  # Root redirects to newsletters for now
+  root to: redirect("/newsletters")
 end
