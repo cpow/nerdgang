@@ -1,0 +1,22 @@
+<%= form_with model: [:admin, creator_channel], class: "space-y-4 max-w-xl" do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :handle %>
+    <%= f.text_field :handle, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :youtube_channel_id %>
+    <%= f.text_field :youtube_channel_id, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :niche_tags, "Niche tags (comma separated)" %>
+    <%= f.text_field :niche_tags, value: creator_channel.niche_tags_array.join(", "), class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.check_box :active %> <%= f.label :active %>
+  </div>
+  <%= f.submit class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+<% end %>

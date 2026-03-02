@@ -11,6 +11,10 @@ default: &default
     class: DiscardStaleArticlesJob
     schedule: every day at 7am
 
+  sync_youtube_data:
+    class: SyncYoutubeDataJob
+    schedule: every day at 8am
+
 development:
   <<: *default
 

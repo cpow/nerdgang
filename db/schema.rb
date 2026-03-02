@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_26_222612) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -75,6 +75,51 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_26_222612) do
     t.index ["source"], name: "index_articles_on_source"
   end
 
+  create_table "creator_channels", force: :cascade do |t|
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.string "handle", null: false
+    t.string "name", null: false
+    t.text "niche_tags"
+    t.datetime "updated_at", null: false
+    t.string "youtube_channel_id"
+    t.index ["handle"], name: "index_creator_channels_on_handle", unique: true
+    t.index ["youtube_channel_id"], name: "index_creator_channels_on_youtube_channel_id"
+  end
+
+  create_table "creator_videos", force: :cascade do |t|
+    t.integer "comment_count"
+    t.datetime "created_at", null: false
+    t.integer "creator_channel_id", null: false
+    t.text "description"
+    t.integer "duration_seconds"
+    t.integer "like_count"
+    t.datetime "published_at"
+    t.text "tags"
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.integer "view_count"
+    t.string "youtube_video_id", null: false
+    t.index ["creator_channel_id"], name: "index_creator_videos_on_creator_channel_id"
+    t.index ["published_at"], name: "index_creator_videos_on_published_at"
+    t.index ["youtube_video_id"], name: "index_creator_videos_on_youtube_video_id", unique: true
+  end
+
+  create_table "ideas", force: :cascade do |t|
+    t.text "angle"
+    t.datetime "created_at", null: false
+    t.integer "creator_channel_id", null: false
+    t.integer "creator_video_id", null: false
+    t.text "notes"
+    t.integer "score"
+    t.string "status", default: "backlog", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_channel_id"], name: "index_ideas_on_creator_channel_id"
+    t.index ["creator_video_id"], name: "index_ideas_on_creator_video_id"
+    t.index ["status"], name: "index_ideas_on_status"
+  end
+
   create_table "newsletter_articles", force: :cascade do |t|
     t.integer "article_id", null: false
     t.text "commentary"
@@ -106,8 +151,24 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_26_222612) do
     t.index ["email"], name: "index_subscribers_on_email", unique: true
   end
 
+  create_table "video_snapshots", force: :cascade do |t|
+    t.datetime "captured_at", null: false
+    t.integer "comment_count"
+    t.datetime "created_at", null: false
+    t.integer "creator_video_id", null: false
+    t.integer "like_count"
+    t.datetime "updated_at", null: false
+    t.integer "view_count"
+    t.index ["creator_video_id", "captured_at"], name: "index_video_snapshots_on_creator_video_id_and_captured_at"
+    t.index ["creator_video_id"], name: "index_video_snapshots_on_creator_video_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "creator_videos", "creator_channels"
+  add_foreign_key "ideas", "creator_channels"
+  add_foreign_key "ideas", "creator_videos"
   add_foreign_key "newsletter_articles", "articles"
   add_foreign_key "newsletter_articles", "newsletters"
+  add_foreign_key "video_snapshots", "creator_videos"
 end

@@ -1,0 +1,21 @@
+<div class="w-full space-y-4">
+  <div class="flex justify-between">
+    <h1 class="text-2xl font-semibold">Video Ideas</h1>
+    <%= link_to "Add idea", new_admin_idea_path, class: "px-3 py-2 bg-blue-600 text-white rounded" %>
+  </div>
+
+  <table class="w-full text-sm bg-white border rounded">
+    <thead><tr class="text-left"><th>Title</th><th>Status</th><th>Score</th><th>Channel</th><th></th></tr></thead>
+    <tbody>
+      <% @ideas.each do |idea| %>
+        <tr class="border-t">
+          <td><%= idea.title %></td>
+          <td><%= idea.status %></td>
+          <td><%= idea.score %></td>
+          <td><%= idea.creator_channel&.name %></td>
+          <td><%= link_to "Edit", edit_admin_idea_path(idea), class: "text-blue-600" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

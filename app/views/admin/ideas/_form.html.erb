@@ -1,0 +1,27 @@
+<%= form_with model: [:admin, idea], class: "space-y-4 max-w-xl" do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :angle %>
+    <%= f.text_area :angle, rows: 4, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :status %>
+    <%= f.select :status, Idea::STATUSES, {}, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :score %>
+    <%= f.number_field :score, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :creator_channel_id, "Source channel" %>
+    <%= f.collection_select :creator_channel_id, CreatorChannel.order(:name), :id, :name, include_blank: true, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes, rows: 3, class: "w-full border rounded px-3 py-2" %>
+  </div>
+  <%= f.submit class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+<% end %>
