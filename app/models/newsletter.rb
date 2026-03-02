@@ -14,6 +14,20 @@ class Newsletter < ApplicationRecord
   before_validation :generate_slug, on: :create
 
   scope :by_recent, -> { order(created_at: :desc) }
+  scope :sent, -> { where.not(sent_at: nil) }
+  scope :not_sent, -> { where(sent_at: nil) }
+
+  def sent?
+    sent_at.present?
+  end
+
+  def sendable?
+    published? && !sent?
+  end
+
+  def mark_as_sent!
+    update!(sent_at: Time.current)
+  end
 
   def to_param
     slug

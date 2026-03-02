@@ -4,5 +4,8 @@ class ScrapeAllSourcesJob < ApplicationJob
   def perform
     ScrapeRedditJob.perform_later
     ScrapeHackernewsJob.perform_later
+    ScrapeLobstersJob.perform_later
+    ScrapeDevtoJob.perform_later
+    ScrapeIndiehackersJob.perform_later
   end
 end

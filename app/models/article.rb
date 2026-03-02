@@ -2,6 +2,9 @@ class Article < ApplicationRecord
   include Discard::Model
   include RedditScrapable
   include HackernewsScrapable
+  include LobstersScrapable
+  include DevtoScrapable
+  include IndiehackersScrapable
 
   has_many :newsletter_articles, dependent: :destroy
   has_many :newsletters, through: :newsletter_articles
@@ -12,12 +15,15 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :url, presence: true
   validates :external_id, presence: true, uniqueness: {scope: :source}
-  validates :source, presence: true, inclusion: {in: %w[reddit hackernews]}
+  validates :source, presence: true, inclusion: {in: %w[reddit hackernews lobsters devto indiehackers]}
   validates :scraped_at, presence: true
 
   # Source scopes
   scope :from_reddit, -> { where(source: "reddit") }
   scope :from_hackernews, -> { where(source: "hackernews") }
+  scope :from_lobsters, -> { where(source: "lobsters") }
+  scope :from_devto, -> { where(source: "devto") }
+  scope :from_indiehackers, -> { where(source: "indiehackers") }
 
   # Ordering scopes
   scope :recent, -> { order(published_at: :desc) }
@@ -46,7 +52,7 @@ class Article < ApplicationRecord
   end
 
   def self.sources
-    %w[reddit hackernews]
+    %w[reddit hackernews lobsters devto indiehackers]
   end
 
   def reddit?
@@ -55,6 +61,18 @@ class Article < ApplicationRecord
 
   def hackernews?
     source == "hackernews"
+  end
+
+  def lobsters?
+    source == "lobsters"
+  end
+
+  def devto?
+    source == "devto"
+  end
+
+  def indiehackers?
+    source == "indiehackers"
   end
 
   def read?
@@ -93,6 +111,12 @@ class Article < ApplicationRecord
       "https://reddit.com/r/#{source_name}/comments/#{external_id}"
     when "hackernews"
       "https://news.ycombinator.com/item?id=#{external_id}"
+    when "lobsters"
+      "https://lobste.rs/s/#{external_id}"
+    when "devto"
+      url
+    when "indiehackers"
+      url
     end
   end
 

@@ -7,7 +7,7 @@
         class: "text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
   </div>
 
-  <div class="mt-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
+  <div class="mt-4 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-3">
     <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
       <div class="text-xs text-gray-500 dark:text-gray-400">Total</div>
       <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:total] %></div>
@@ -27,6 +27,18 @@
     <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
       <div class="text-xs text-gray-500 dark:text-gray-400">Hacker News</div>
       <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:hackernews] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Lobste.rs</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:lobsters] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Dev.to</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:devto] %></div>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
+      <div class="text-xs text-gray-500 dark:text-gray-400">Indie Hackers</div>
+      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:indiehackers] %></div>
     </div>
     <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
       <div class="text-xs text-gray-500 dark:text-gray-400">Bookmarked</div>
@@ -72,6 +84,9 @@
           <option value="">All Sources</option>
           <option value="reddit" <%= "selected" if params[:source] == "reddit" %>>Reddit</option>
           <option value="hackernews" <%= "selected" if params[:source] == "hackernews" %>>Hacker News</option>
+          <option value="lobsters" <%= "selected" if params[:source] == "lobsters" %>>Lobste.rs</option>
+          <option value="devto" <%= "selected" if params[:source] == "devto" %>>Dev.to</option>
+          <option value="indiehackers" <%= "selected" if params[:source] == "indiehackers" %>>Indie Hackers</option>
         </select>
       </div>
 
@@ -151,13 +166,26 @@
               </div>
             </td>
             <td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
-              <% if article.reddit? %>
+              <% case article.source %>
+              <% when "reddit" %>
                 <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300">
                   r/<%= article.source_name %>
                 </span>
-              <% else %>
+              <% when "hackernews" %>
                 <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300">
                   HN
+                </span>
+              <% when "lobsters" %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300">
+                  Lobste.rs
+                </span>
+              <% when "devto" %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300">
+                  Dev.to
+                </span>
+              <% when "indiehackers" %>
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
+                  IH
                 </span>
               <% end %>
             </td>

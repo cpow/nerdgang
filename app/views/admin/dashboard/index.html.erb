@@ -54,7 +54,7 @@
 </div>
 
 <!-- Article Stats -->
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
   <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
     <div class="text-sm text-gray-500 dark:text-gray-400">Total Articles</div>
     <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @stats[:total_articles] %></div>
@@ -68,18 +68,19 @@
     <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @stats[:articles_this_week] %></div>
   </div>
   <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
-    <div class="text-sm text-gray-500 dark:text-gray-400">Reddit</div>
-    <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @stats[:by_source]["reddit"] || 0 %></div>
-  </div>
-  <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
-    <div class="text-sm text-gray-500 dark:text-gray-400">Hacker News</div>
-    <div class="text-2xl font-semibold text-gray-900 dark:text-white"><%= @stats[:by_source]["hackernews"] || 0 %></div>
-  </div>
-  <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
     <div class="text-sm text-gray-500 dark:text-gray-400">Last Scrape</div>
     <div class="text-sm font-medium text-gray-900 dark:text-white">
-      <% last_scrape = [@stats[:last_reddit_scrape], @stats[:last_hn_scrape]].compact.max %>
-      <%= last_scrape&.strftime("%b %d, %H:%M") || "Never" %>
+      <%= @stats[:last_scrape]&.strftime("%b %d, %H:%M") || "Never" %>
+    </div>
+  </div>
+  <div class="bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
+    <div class="text-sm text-gray-500 dark:text-gray-400">By Source</div>
+    <div class="text-xs text-gray-700 dark:text-gray-300 mt-1 space-y-0.5">
+      <div>Reddit: <%= @stats[:by_source]["reddit"] || 0 %></div>
+      <div>HN: <%= @stats[:by_source]["hackernews"] || 0 %></div>
+      <div>Lobste.rs: <%= @stats[:by_source]["lobsters"] || 0 %></div>
+      <div>Dev.to: <%= @stats[:by_source]["devto"] || 0 %></div>
+      <div>IH: <%= @stats[:by_source]["indiehackers"] || 0 %></div>
     </div>
   </div>
 </div>
@@ -96,7 +97,7 @@
                 <%= truncate(article.title, length: 70) %>
               <% end %>
               <div class="mt-1 flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
-                <span><%= article.source == "reddit" ? "r/#{article.source_name}" : "HN" %></span>
+                <span><%= source_label(article) %></span>
                 <span><%= article.score %> pts</span>
                 <span><%= time_ago_in_words(article.published_at) %> ago</span>
               </div>
@@ -120,7 +121,7 @@
                 <%= truncate(article.title, length: 70) %>
               <% end %>
               <div class="mt-1 flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
-                <span><%= article.source == "reddit" ? "r/#{article.source_name}" : "HN" %></span>
+                <span><%= source_label(article) %></span>
                 <span><%= article.score %> pts</span>
                 <span><%= article.comments_count %> comments</span>
               </div>

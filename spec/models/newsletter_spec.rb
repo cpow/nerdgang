@@ -136,5 +136,64 @@ RSpec.describe Newsletter, type: :model do
         expect(Newsletter.by_recent).to eq([new, old])
       end
     end
+
+    describe ".sent" do
+      it "returns only sent newsletters" do
+        sent = create(:newsletter, :sent)
+        unsent = create(:newsletter)
+
+        expect(Newsletter.sent).to include(sent)
+        expect(Newsletter.sent).not_to include(unsent)
+      end
+    end
+
+    describe ".not_sent" do
+      it "returns only unsent newsletters" do
+        sent = create(:newsletter, :sent)
+        unsent = create(:newsletter)
+
+        expect(Newsletter.not_sent).not_to include(sent)
+        expect(Newsletter.not_sent).to include(unsent)
+      end
+    end
+  end
+
+  describe "#sent?" do
+    it "returns false when sent_at is nil" do
+      newsletter = build(:newsletter, sent_at: nil)
+      expect(newsletter.sent?).to be false
+    end
+
+    it "returns true when sent_at is present" do
+      newsletter = build(:newsletter, sent_at: Time.current)
+      expect(newsletter.sent?).to be true
+    end
+  end
+
+  describe "#sendable?" do
+    it "returns true when published and not sent" do
+      newsletter = build(:newsletter, :published, sent_at: nil)
+      expect(newsletter.sendable?).to be true
+    end
+
+    it "returns false when not published" do
+      newsletter = build(:newsletter, :draft)
+      expect(newsletter.sendable?).to be false
+    end
+
+    it "returns false when already sent" do
+      newsletter = build(:newsletter, :published, :sent)
+      expect(newsletter.sendable?).to be false
+    end
+  end
+
+  describe "#mark_as_sent!" do
+    it "sets sent_at to current time" do
+      newsletter = create(:newsletter, :published)
+      freeze_time do
+        newsletter.mark_as_sent!
+        expect(newsletter.sent_at).to eq(Time.current)
+      end
+    end
   end
 end

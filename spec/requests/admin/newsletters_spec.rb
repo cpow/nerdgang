@@ -155,4 +155,68 @@ RSpec.describe "Admin::Newsletters", type: :request do
       expect(response).to redirect_to(admin_newsletter_path(newsletter))
     end
   end
+
+  describe "POST /admin/newsletters/:id/send_newsletter" do
+    let(:newsletter) { create(:newsletter, :published) }
+
+    it "requires authentication" do
+      post send_newsletter_admin_newsletter_path(newsletter)
+      expect(response).to have_http_status(:unauthorized)
+    end
+
+    it "enqueues the send job" do
+      create(:subscriber)
+
+      expect {
+        post send_newsletter_admin_newsletter_path(newsletter), headers: headers
+      }.to have_enqueued_job(SendNewsletterJob).with(newsletter.id)
+    end
+
+    it "redirects with success message" do
+      create(:subscriber)
+
+      post send_newsletter_admin_newsletter_path(newsletter), headers: headers
+
+      expect(response).to redirect_to(admin_newsletter_path(newsletter))
+      expect(flash[:notice]).to include("subscribers")
+    end
+
+    it "redirects with alert if already sent" do
+      newsletter.update!(sent_at: 1.day.ago)
+
+      post send_newsletter_admin_newsletter_path(newsletter), headers: headers
+
+      expect(response).to redirect_to(admin_newsletter_path(newsletter))
+      expect(flash[:alert]).to include("already been sent")
+    end
+
+    it "redirects with alert if not published" do
+      draft = create(:newsletter, :draft)
+
+      post send_newsletter_admin_newsletter_path(draft), headers: headers
+
+      expect(response).to redirect_to(admin_newsletter_path(draft))
+      expect(flash[:alert]).to include("must be published")
+    end
+  end
+
+  describe "GET /admin/newsletters/:id/preview" do
+    let(:newsletter) { create(:newsletter, :published, title: "Preview Test") }
+
+    it "requires authentication" do
+      get preview_admin_newsletter_path(newsletter)
+      expect(response).to have_http_status(:unauthorized)
+    end
+
+    it "renders the email preview" do
+      article = create(:article, title: "Test Article")
+      create(:newsletter_article, newsletter: newsletter, article: article)
+
+      get preview_admin_newsletter_path(newsletter), headers: headers
+
+      expect(response).to have_http_status(:success)
+      expect(response.body).to include("Preview Test")
+      expect(response.body).to include("Test Article")
+    end
+  end
 end

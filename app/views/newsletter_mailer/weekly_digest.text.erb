@@ -1,0 +1,34 @@
+POWER DEV - Weekly Developer Newsletter
+========================================
+
+<%= @newsletter.title %>
+<%= @newsletter.published_at.strftime("%B %d, %Y") %>
+
+<% if @newsletter.blurb.present? %>
+<%= @newsletter.blurb.to_plain_text %>
+
+<% end %>
+---
+
+THIS WEEK'S TOP STORIES
+<% @newsletter.newsletter_articles.each_with_index do |newsletter_article, index| %>
+<% article = newsletter_article.article %>
+
+<%= index + 1 %>. <%= article.title %>
+   <%= article.source_name %> | <%= article.score %> points | <%= article.comments_count %> comments
+   Link: <%= article.url %>
+   Discussion: <%= article.discussion_url %>
+<% if newsletter_article.commentary.present? %>
+   > <%= newsletter_article.commentary %>
+<% end %>
+<% end %>
+
+---
+
+Read the full newsletter in your browser:
+<%= newsletter_url(@newsletter.slug) %>
+
+---
+
+You received this email because you subscribed to Power Dev.
+To unsubscribe: <%= @unsubscribe_url %>

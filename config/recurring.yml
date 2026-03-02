@@ -7,6 +7,18 @@ default: &default
     class: ScrapeHackernewsJob
     schedule: every day at 6am
 
+  scrape_lobsters:
+    class: ScrapeLobstersJob
+    schedule: every day at 6am
+
+  scrape_devto:
+    class: ScrapeDevtoJob
+    schedule: every day at 6am
+
+  scrape_indiehackers:
+    class: ScrapeIndiehackersJob
+    schedule: every day at 6am
+
   discard_stale_articles:
     class: DiscardStaleArticlesJob
     schedule: every day at 7am

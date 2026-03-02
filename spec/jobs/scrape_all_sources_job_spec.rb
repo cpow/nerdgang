@@ -2,9 +2,12 @@ require "rails_helper"
 
 RSpec.describe ScrapeAllSourcesJob, type: :job do
   describe "#perform" do
-    it "enqueues both Reddit and Hacker News scrape jobs" do
+    it "enqueues all source scrape jobs" do
       expect(ScrapeRedditJob).to receive(:perform_later)
       expect(ScrapeHackernewsJob).to receive(:perform_later)
+      expect(ScrapeLobstersJob).to receive(:perform_later)
+      expect(ScrapeDevtoJob).to receive(:perform_later)
+      expect(ScrapeIndiehackersJob).to receive(:perform_later)
 
       ScrapeAllSourcesJob.new.perform
     end

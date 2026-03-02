@@ -6,8 +6,7 @@ module Admin
         articles_today: Article.today.count,
         articles_this_week: Article.this_week.count,
         by_source: Article.group(:source).count,
-        last_reddit_scrape: Article.from_reddit.maximum(:scraped_at),
-        last_hn_scrape: Article.from_hackernews.maximum(:scraped_at),
+        last_scrape: Article.maximum(:scraped_at),
         total_subscribers: Subscriber.count,
         subscribers_today: Subscriber.where("created_at >= ?", 24.hours.ago).count,
         subscribers_this_week: Subscriber.where("created_at >= ?", 7.days.ago).count

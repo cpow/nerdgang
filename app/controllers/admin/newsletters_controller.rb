@@ -1,6 +1,6 @@
 module Admin
   class NewslettersController < BaseController
-    before_action :set_newsletter, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
+    before_action :set_newsletter, only: [:show, :edit, :update, :destroy, :publish, :unpublish, :send_newsletter, :preview]
 
     def index
       @newsletters = Newsletter.kept.by_recent
@@ -47,6 +47,24 @@ module Admin
     def unpublish
       @newsletter.unpublish!
       redirect_to admin_newsletter_path(@newsletter), notice: "Newsletter was unpublished."
+    end
+
+    def send_newsletter
+      if @newsletter.sent?
+        redirect_to admin_newsletter_path(@newsletter), alert: "Newsletter has already been sent."
+      elsif !@newsletter.published?
+        redirect_to admin_newsletter_path(@newsletter), alert: "Newsletter must be published before sending."
+      else
+        subscriber_count = Subscriber.subscribed.count
+        SendNewsletterJob.perform_later(@newsletter.id)
+        redirect_to admin_newsletter_path(@newsletter), notice: "Newsletter is being sent to #{subscriber_count} subscribers."
+      end
+    end
+
+    def preview
+      @subscriber = Subscriber.new(email: "preview@example.com", unsubscribe_token: "preview-token")
+      mail = NewsletterMailer.weekly_digest(@subscriber, @newsletter)
+      render html: mail.html_part.body.to_s.html_safe, layout: false
     end
 
     private

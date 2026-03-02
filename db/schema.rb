@@ -136,6 +136,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
     t.datetime "created_at", null: false
     t.datetime "discarded_at"
     t.datetime "published_at"
+    t.datetime "sent_at"
     t.string "slug", null: false
     t.string "title", null: false
     t.datetime "updated_at", null: false
@@ -146,9 +147,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
     t.datetime "created_at", null: false
     t.datetime "discarded_at"
     t.string "email", null: false
+    t.string "unsubscribe_token"
+    t.datetime "unsubscribed_at"
     t.datetime "updated_at", null: false
     t.index ["discarded_at"], name: "index_subscribers_on_discarded_at"
     t.index ["email"], name: "index_subscribers_on_email", unique: true
+    t.index ["unsubscribe_token"], name: "index_subscribers_on_unsubscribe_token", unique: true
   end
 
   create_table "video_snapshots", force: :cascade do |t|

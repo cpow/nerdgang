@@ -21,6 +21,21 @@ FactoryBot.define do
       source_name { "Hacker News" }
     end
 
+    trait :from_lobsters do
+      source { "lobsters" }
+      source_name { "Lobste.rs" }
+    end
+
+    trait :from_devto do
+      source { "devto" }
+      source_name { "Dev.to" }
+    end
+
+    trait :from_indiehackers do
+      source { "indiehackers" }
+      source_name { "Indie Hackers" }
+    end
+
     trait :high_score do
       score { 1000 }
       comments_count { 250 }

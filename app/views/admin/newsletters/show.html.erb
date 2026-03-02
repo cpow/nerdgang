@@ -14,6 +14,15 @@
         <%= link_to "View Public", newsletter_path(@newsletter.slug),
             target: "_blank",
             class: "px-3 py-2 rounded text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+        <%= link_to "Preview Email", preview_admin_newsletter_path(@newsletter),
+            target: "_blank",
+            class: "px-3 py-2 rounded text-sm border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+        <% unless @newsletter.sent? %>
+          <%= button_to "Send to Subscribers", send_newsletter_admin_newsletter_path(@newsletter),
+              method: :post,
+              class: "bg-green-600 text-white px-4 py-2 rounded text-sm font-medium hover:bg-blue-700",
+              data: { turbo_confirm: "Send this newsletter to #{Subscriber.subscribed.count} subscribers?" } %>
+        <% end %>
       <% else %>
         <%= button_to "Publish", publish_admin_newsletter_path(@newsletter),
             method: :post,
@@ -34,6 +43,11 @@
   <% else %>
     <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
       Draft
+    </span>
+  <% end %>
+  <% if @newsletter.sent? %>
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300">
+      Sent <%= @newsletter.sent_at.strftime("%b %d, %Y at %H:%M") %>
     </span>
   <% end %>
 </div>

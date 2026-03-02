@@ -18,10 +18,8 @@ RSpec.describe "Admin Dashboard", type: :feature do
 
       expect(page).to have_content("Total Articles")
       expect(page).to have_content("5")
-      expect(page).to have_content("Reddit")
-      expect(page).to have_content("3")
-      expect(page).to have_content("Hacker News")
-      expect(page).to have_content("2")
+      expect(page).to have_content("Reddit: 3")
+      expect(page).to have_content("HN: 2")
     end
 
     it "displays today count" do

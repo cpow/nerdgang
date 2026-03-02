@@ -19,6 +19,8 @@ Rails.application.routes.draw do
       member do
         post :publish
         post :unpublish
+        post :send_newsletter
+        get :preview
       end
     end
 
@@ -44,6 +46,9 @@ Rails.application.routes.draw do
   # Public newsletters
   resources :newsletters, only: [:index, :show], param: :slug
   resources :subscribers, only: [:create]
+
+  # Unsubscribe
+  get "unsubscribe/:token", to: "unsubscribes#show", as: :unsubscribe
 
   # Health check
   get "up" => "rails/health#show", :as => :rails_health_check

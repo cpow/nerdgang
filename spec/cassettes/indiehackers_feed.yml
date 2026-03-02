@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.indiehackers.com/feed.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - NewsAggregator/1.0 (Rails)
+      Host:
+      - www.indiehackers.com
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Wed, 18 Feb 2026 15:42:59 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2FH4gBxntj4FoTWk5LyxtGFMl4Ho88S3q2%2BpkcWpYMPCQdBpGTh%2BOP1S53wd%2FoTeqaKMpnQBELK4v%2F8vEQ%2FatISkqKr54bQx1uhJLCvaHP14SsjVG2WFqpTTb2uBP8bs%3D"}]}'
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Render-Origin-Server:
+      - Render
+      Location:
+      - "//www.indiehackers.com/"
+      Rndr-Id:
+      - 2a236aba-1cef-4547
+      Set-Cookie:
+      - ih-ab-bucket=51; Max-Age=2592000; Path=/; Expires=Fri, 20 Mar 2026 15:42:58
+        GMT
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Cf-Ray:
+      - 9cfea3304e6d7c96-EWR
+    body:
+      encoding: UTF-8
+      string: <body  class="no-quote"><h1>Redirecting to <a href="//www.indiehackers.com/">//www.indiehackers.com/</a></h1></body>
+  recorded_at: Wed, 18 Feb 2026 15:42:59 GMT
+recorded_with: VCR 6.4.0

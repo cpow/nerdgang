@@ -153,7 +153,7 @@ RSpec.describe "Admin Articles", type: :feature do
     it "has source filter dropdown" do
       visit admin_articles_path
 
-      expect(page).to have_select("source", options: ["All Sources", "Reddit", "Hacker News"])
+      expect(page).to have_select("source", options: ["All Sources", "Reddit", "Hacker News", "Lobste.rs", "Dev.to", "Indie Hackers"])
     end
 
     it "has status filter dropdown" do

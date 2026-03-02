@@ -20,5 +20,10 @@ FactoryBot.define do
     trait :discarded do
       discarded_at { 1.hour.ago }
     end
+
+    trait :sent do
+      published_at { 2.days.ago }
+      sent_at { 1.day.ago }
+    end
   end
 end
