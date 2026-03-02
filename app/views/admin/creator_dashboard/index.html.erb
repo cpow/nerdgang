@@ -1,7 +1,10 @@
 <div class="w-full space-y-6">
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between gap-3">
     <h1 class="text-2xl font-semibold">Creator Intelligence Dashboard</h1>
-    <%= button_to "Sync now", sync_admin_creator_dashboard_index_path, method: :post, class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+    <div class="flex gap-2">
+      <%= button_to "Sync now", sync_admin_creator_dashboard_index_path, method: :post, class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+      <%= button_to "Generate Suggestions", generate_suggestions_admin_creator_dashboard_index_path, method: :post, class: "px-4 py-2 bg-purple-600 text-white rounded" %>
+    </div>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">

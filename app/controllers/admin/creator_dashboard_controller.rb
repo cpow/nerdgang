@@ -15,6 +15,11 @@ module Admin
       redirect_to admin_creator_dashboard_index_path, notice: "YouTube sync finished"
     end
 
+    def generate_suggestions
+      created = GenerateIdeaSuggestionsJob.perform_now(limit: 10)
+      redirect_to admin_creator_dashboard_index_path, notice: "Generated #{created} idea suggestions"
+    end
+
     private
 
     def filtered_videos

@@ -1,5 +1,6 @@
 class CreatorVideo < ApplicationRecord
   include MetricScorable
+  include TrendAnalyzable
 
   belongs_to :creator_channel
   has_many :video_snapshots, dependent: :destroy

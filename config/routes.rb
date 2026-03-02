@@ -32,7 +32,10 @@ Rails.application.routes.draw do
     resources :subscribers, only: [:index]
 
     resources :creator_dashboard, only: [:index] do
-      collection { post :sync }
+      collection do
+        post :sync
+        post :generate_suggestions
+      end
     end
     resources :creator_channels, except: [:show, :destroy]
     resources :ideas, except: [:show, :destroy]
