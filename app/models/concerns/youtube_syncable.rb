@@ -3,14 +3,18 @@ module YoutubeSyncable
 
   class_methods do
     def sync_from_youtube!
-      return if ENV["YOUTUBE_API_KEY"].blank?
+      return if youtube_api_key.blank?
 
       active.find_each(&:sync_recent_videos!)
+    end
+
+    def youtube_api_key
+      Rails.application.credentials.youtube_api_key
     end
   end
 
   def sync_recent_videos!
-    return if ENV["YOUTUBE_API_KEY"].blank?
+    return if self.class.youtube_api_key.blank?
 
     items = youtube_search_items
     video_ids = items.map { |item| item.dig("id", "videoId") }.compact
@@ -49,7 +53,7 @@ module YoutubeSyncable
 
     url = URI("https://www.googleapis.com/youtube/v3/search")
     url.query = URI.encode_www_form(
-      key: ENV["YOUTUBE_API_KEY"],
+      key: self.class.youtube_api_key,
       channelId: youtube_channel_id,
       part: "snippet",
       order: "date",
@@ -70,7 +74,7 @@ module YoutubeSyncable
 
     url = URI("https://www.googleapis.com/youtube/v3/videos")
     url.query = URI.encode_www_form(
-      key: ENV["YOUTUBE_API_KEY"],
+      key: self.class.youtube_api_key,
       id: video_ids.join(","),
       part: "snippet,statistics,contentDetails"
     )

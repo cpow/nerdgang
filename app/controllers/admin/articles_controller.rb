@@ -5,7 +5,7 @@ module Admin
     def index
       @articles = apply_filters(Article.all)
       @articles = apply_sorting(@articles)
-      @articles = @articles.limit(100)
+      @pagy, @articles = pagy(:offset, @articles, limit: 20)
 
       @stats = {
         total: Article.count,

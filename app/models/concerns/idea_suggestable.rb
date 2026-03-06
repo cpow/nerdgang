@@ -4,7 +4,7 @@ module IdeaSuggestable
   class_methods do
     def generate_from_trends!(limit: 8)
       keywords = CreatorVideo.top_keywords(limit: 20)
-      videos = CreatorVideo.high_momentum(limit: 25)
+      videos = CreatorVideo.high_velocity(limit: 25)
       return 0 if keywords.empty? || videos.empty?
 
       created = 0

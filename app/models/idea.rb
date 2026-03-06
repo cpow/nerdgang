@@ -1,5 +1,6 @@
 class Idea < ApplicationRecord
   include IdeaSuggestable
+  include AiIdeaGeneratable
 
   belongs_to :creator_channel, optional: true
   belongs_to :creator_video, optional: true

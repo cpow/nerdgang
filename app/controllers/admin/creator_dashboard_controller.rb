@@ -4,10 +4,15 @@ module Admin
       @creator_channels = CreatorChannel.active.order(:name)
       @videos = filtered_videos.limit(50)
       @ideas = Idea.includes(:creator_channel, :creator_video).order(score: :desc, created_at: :desc).limit(30)
-      @top_competitor_videos = CreatorVideo.joins(:creator_channel)
-        .where.not(creator_channels: {handle: "@typecraft_dev"})
-        .order(view_count: :desc)
-        .limit(20)
+
+      # Recent videos by channel, sorted by velocity (views per hour)
+      @recent_videos_by_channel = @creator_channels.each_with_object({}) do |channel, hash|
+        hash[channel] = channel.creator_videos
+          .where("published_at >= ?", 14.days.ago)
+          .select("creator_videos.*, (view_count * 1.0 / NULLIF((julianday('now') - julianday(published_at)) * 24, 0)) AS views_per_hour")
+          .order(Arel.sql("views_per_hour DESC NULLS LAST"))
+          .limit(5)
+      end
     end
 
     def sync

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_02_194059) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -109,10 +109,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
     t.text "angle"
     t.datetime "created_at", null: false
     t.integer "creator_channel_id", null: false
-    t.integer "creator_video_id", null: false
+    t.integer "creator_video_id"
+    t.string "difficulty"
+    t.string "hardware_components"
+    t.text "hook"
+    t.text "key_points"
     t.text "notes"
     t.integer "score"
     t.string "status", default: "backlog", null: false
+    t.string "thumbnail_concept"
     t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_channel_id"], name: "index_ideas_on_creator_channel_id"
@@ -171,7 +176,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_02_155558) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "creator_videos", "creator_channels"
   add_foreign_key "ideas", "creator_channels"
-  add_foreign_key "ideas", "creator_videos"
+  add_foreign_key "ideas", "creator_videos", on_delete: :nullify
   add_foreign_key "newsletter_articles", "articles"
   add_foreign_key "newsletter_articles", "newsletters"
   add_foreign_key "video_snapshots", "creator_videos"

@@ -1,22 +1,45 @@
-<%= form_with model: [:admin, creator_channel], class: "space-y-4 max-w-xl" do |f| %>
+<%= form_with model: [:admin, creator_channel], class: "space-y-6 max-w-xl" do |f| %>
+  <% if creator_channel.errors.any? %>
+    <div class="p-4 bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded">
+      <h3 class="text-sm font-medium text-red-800 dark:text-red-300"><%= pluralize(creator_channel.errors.count, "error") %> prohibited this channel from being saved:</h3>
+      <ul class="mt-2 text-sm text-red-700 dark:text-red-400 list-disc list-inside">
+        <% creator_channel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "w-full border rounded px-3 py-2" %>
+    <%= f.label :name, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :name, class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
   </div>
+
   <div>
-    <%= f.label :handle %>
-    <%= f.text_field :handle, class: "w-full border rounded px-3 py-2" %>
+    <%= f.label :handle, class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :handle, placeholder: "@username", class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">The YouTube handle, e.g., @typecraft_dev</p>
   </div>
+
   <div>
-    <%= f.label :youtube_channel_id %>
-    <%= f.text_field :youtube_channel_id, class: "w-full border rounded px-3 py-2" %>
+    <%= f.label :youtube_channel_id, "YouTube Channel ID", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :youtube_channel_id, placeholder: "UCxxxxxxxxxxxxxxxx", class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Find this in the channel URL or use a tool like <a href="https://commentpicker.com/youtube-channel-id.php" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Comment Picker</a></p>
   </div>
+
   <div>
-    <%= f.label :niche_tags, "Niche tags (comma separated)" %>
-    <%= f.text_field :niche_tags, value: creator_channel.niche_tags_array.join(", "), class: "w-full border rounded px-3 py-2" %>
+    <%= f.label :niche_tags, "Niche Tags", class: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1" %>
+    <%= f.text_field :niche_tags, value: creator_channel.niche_tags_array.join(", "), placeholder: "rails, linux, neovim", class: "w-full border border-gray-300 dark:border-gray-600 rounded px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Comma-separated list of topics this channel covers</p>
   </div>
-  <div>
-    <%= f.check_box :active %> <%= f.label :active %>
+
+  <div class="flex items-center gap-2">
+    <%= f.check_box :active, class: "h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 bg-white dark:bg-gray-700" %>
+    <%= f.label :active, class: "text-sm font-medium text-gray-700 dark:text-gray-300" %>
   </div>
-  <%= f.submit class: "px-4 py-2 bg-blue-600 text-white rounded" %>
+
+  <div class="flex items-center gap-3 pt-4">
+    <%= f.submit class: "px-4 py-2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200 cursor-pointer" %>
+    <%= link_to "Cancel", admin_creator_channels_path, class: "px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700" %>
+  </div>
 <% end %>

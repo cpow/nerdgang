@@ -19,8 +19,16 @@ gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "pry"
+
 # Soft deletes for ActiveRecord [https://github.com/jhawthorn/discard]
 gem "discard"
+
+# Pagination [https://github.com/ddnexus/pagy]
+gem "pagy"
+
+# Anthropic Claude API for AI-powered features
+gem "anthropic"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

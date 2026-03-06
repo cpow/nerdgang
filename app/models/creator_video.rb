@@ -2,6 +2,8 @@ class CreatorVideo < ApplicationRecord
   include MetricScorable
   include TrendAnalyzable
 
+  serialize :tags, coder: JSON
+
   belongs_to :creator_channel
   has_many :video_snapshots, dependent: :destroy
   has_many :ideas, dependent: :nullify

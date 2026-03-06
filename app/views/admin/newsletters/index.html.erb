@@ -1,12 +1,9 @@
 <% content_for(:title) { "Newsletters - News Admin" } %>
-
-<div class="mb-6">
-  <div class="flex justify-between items-center">
-    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Newsletters</h2>
-    <%= link_to "New Newsletter", new_admin_newsletter_path,
-        class: "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-4 py-2 rounded text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200" %>
-  </div>
-</div>
+<% content_for(:page_title) { "Newsletters" } %>
+<% content_for(:page_actions) do %>
+  <%= link_to "New Newsletter", new_admin_newsletter_path,
+      class: "inline-flex items-center gap-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-200" %>
+<% end %>
 
 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded overflow-hidden">
   <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">

@@ -7,26 +7,26 @@ RSpec.describe "Admin Dark Mode", type: :feature do
     it "exists on dashboard page" do
       visit admin_root_path
 
-      expect(page).to have_css("button[title='Toggle dark mode']")
+      expect(page).to have_button("Toggle Theme")
     end
 
     it "exists on articles page" do
       visit admin_articles_path
 
-      expect(page).to have_css("button[title='Toggle dark mode']")
+      expect(page).to have_button("Toggle Theme")
     end
 
     it "exists on bookmarks page" do
       visit bookmarks_admin_articles_path
 
-      expect(page).to have_css("button[title='Toggle dark mode']")
+      expect(page).to have_button("Toggle Theme")
     end
 
     it "exists on article show page" do
       article = create(:article)
       visit admin_article_path(article)
 
-      expect(page).to have_css("button[title='Toggle dark mode']")
+      expect(page).to have_button("Toggle Theme")
     end
   end
 

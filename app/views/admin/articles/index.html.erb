@@ -1,55 +1,14 @@
 <% content_for(:title) { "Articles - News Admin" } %>
-
-<div class="mb-6">
-  <div class="flex justify-between items-center">
-    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Articles</h2>
-    <%= link_to "Bookmarks (#{@stats[:bookmarked]})", bookmarks_admin_articles_path,
-        class: "text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+<% content_for(:page_title) { "Articles" } %>
+<% content_for(:page_actions) do %>
+  <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+    <span>Total: <span class="font-medium text-gray-900 dark:text-white"><%= @stats[:total] %></span></span>
+    <span>Bookmarked: <span class="font-medium text-gray-900 dark:text-white"><%= @stats[:bookmarked] %></span></span>
+    <span>Unread: <span class="font-medium text-gray-900 dark:text-white"><%= @stats[:unread] %></span></span>
   </div>
-
-  <div class="mt-4 grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-3">
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Total</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:total] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Unread</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:unread] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Today</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:today] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Reddit</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:reddit] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Hacker News</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:hackernews] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Lobste.rs</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:lobsters] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Dev.to</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:devto] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Indie Hackers</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:indiehackers] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Bookmarked</div>
-      <div class="text-xl font-semibold text-gray-900 dark:text-white"><%= @stats[:bookmarked] %></div>
-    </div>
-    <div class="bg-white dark:bg-gray-800 p-3 rounded border border-gray-200 dark:border-gray-700">
-      <div class="text-xs text-gray-500 dark:text-gray-400">Last Scrape</div>
-      <div class="text-sm font-medium text-gray-900 dark:text-white"><%= @stats[:last_scrape]&.strftime("%b %d, %H:%M") || "Never" %></div>
-    </div>
-  </div>
-</div>
+  <%= link_to "Bookmarks (#{@stats[:bookmarked]})", bookmarks_admin_articles_path,
+      class: "text-sm px-3 py-1 rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+<% end %>
 
 <!-- Filters -->
 <div class="mb-4 bg-white dark:bg-gray-800 p-4 rounded border border-gray-200 dark:border-gray-700">
@@ -220,3 +179,35 @@
     </tbody>
   </table>
 </div>
+
+<!-- Pagination -->
+<% if @pagy.pages > 1 %>
+  <div class="mt-4 flex items-center justify-between">
+    <div class="text-sm text-gray-500 dark:text-gray-400">
+      Showing <%= @pagy.from %>-<%= @pagy.to %> of <%= @pagy.count %> articles
+    </div>
+    <nav class="flex items-center gap-1">
+      <% if @pagy.previous %>
+        <%= link_to @pagy.page_url(@pagy.previous), class: "px-3 py-1.5 text-sm rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" do %>
+          &larr; Prev
+        <% end %>
+      <% end %>
+
+      <% (1..@pagy.pages).each do |page| %>
+        <% if page == @pagy.page %>
+          <span class="px-3 py-1.5 text-sm rounded bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-medium"><%= page %></span>
+        <% elsif page == 1 || page == @pagy.pages || (page >= @pagy.page - 2 && page <= @pagy.page + 2) %>
+          <%= link_to page, @pagy.page_url(page), class: "px-3 py-1.5 text-sm rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" %>
+        <% elsif page == 2 || page == @pagy.pages - 1 %>
+          <span class="px-2 text-gray-400">...</span>
+        <% end %>
+      <% end %>
+
+      <% if @pagy.next %>
+        <%= link_to @pagy.page_url(@pagy.next), class: "px-3 py-1.5 text-sm rounded border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" do %>
+          Next &rarr;
+        <% end %>
+      <% end %>
+    </nav>
+  </div>
+<% end %>

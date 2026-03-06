@@ -33,7 +33,11 @@ module Admin
     private
 
     def idea_params
-      params.require(:idea).permit(:title, :angle, :status, :score, :notes, :creator_channel_id, :creator_video_id)
+      params.require(:idea).permit(
+        :title, :angle, :hook, :thumbnail_concept, :key_points,
+        :hardware_components, :difficulty, :status, :score, :notes,
+        :creator_channel_id, :creator_video_id
+      )
     end
   end
 end

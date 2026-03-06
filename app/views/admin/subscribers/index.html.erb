@@ -1,11 +1,8 @@
 <% content_for(:title) { "Subscribers - News Admin" } %>
-
-<div class="mb-6">
-  <div class="flex justify-between items-center">
-    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Subscribers</h2>
-    <span class="text-sm text-gray-500 dark:text-gray-400"><%= @subscribers.count %> total</span>
-  </div>
-</div>
+<% content_for(:page_title) { "Subscribers" } %>
+<% content_for(:page_actions) do %>
+  <span class="text-sm text-gray-500 dark:text-gray-400"><%= @subscribers.count %> total</span>
+<% end %>
 
 <div class="bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-700 overflow-hidden">
   <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">

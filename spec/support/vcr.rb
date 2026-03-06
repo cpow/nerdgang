@@ -7,8 +7,9 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.allow_http_connections_when_no_cassette = false
 
-  # Filter sensitive data if needed
-  # config.filter_sensitive_data('<API_KEY>') { ENV['API_KEY'] }
+  # Filter sensitive data
+  config.filter_sensitive_data("<YOUTUBE_API_KEY>") { Rails.application.credentials.youtube_api_key }
+  config.filter_sensitive_data("<ANTHROPIC_API_KEY>") { ENV["ANTHROPIC_API_KEY"] }
 
   # Ignore localhost for system tests
   config.ignore_localhost = true

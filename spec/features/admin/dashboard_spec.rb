@@ -101,8 +101,8 @@ RSpec.describe "Admin Dashboard", type: :feature do
     it "highlights current page in navigation" do
       visit admin_root_path
 
-      # Dashboard link should be highlighted
-      expect(page).to have_css("a.border-gray-900", text: "Dashboard")
+      # Dashboard link should be highlighted with active class in sidebar
+      expect(page).to have_css("a.bg-gray-100", text: "Dashboard")
     end
   end
 
