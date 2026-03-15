@@ -23,13 +23,6 @@ default: &default
     class: DiscardStaleArticlesJob
     schedule: every day at 7am
 
-  sync_youtube_data:
-    class: SyncYoutubeDataJob
-    schedule: every day at 8am
-
-  generate_idea_suggestions:
-    class: GenerateIdeaSuggestionsJob
-    schedule: every day at 9am
 
 development:
   <<: *default

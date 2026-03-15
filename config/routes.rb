@@ -32,15 +32,6 @@ Rails.application.routes.draw do
     end
 
     resources :subscribers, only: [:index]
-
-    resources :creator_dashboard, only: [:index] do
-      collection do
-        post :sync
-        post :generate_suggestions
-      end
-    end
-    resources :creator_channels, except: [:show, :destroy]
-    resources :ideas, except: [:show, :destroy]
   end
 
   # Public newsletters
