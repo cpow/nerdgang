@@ -1,13 +1,13 @@
 # Name of your application. Used to uniquely configure containers.
-service: power_dev
+service: nerdgang
 
 # Name of the container image (use your-user/app-name on external registries).
-image: power_dev
+image: typecraft/nerdgang
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 10.108.0.3
   # job:
   #   hosts:
   #     - 192.168.0.1

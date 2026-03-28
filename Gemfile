@@ -89,3 +89,5 @@ group :test do
   gem "vcr"
   gem "webmock"
 end
+
+gem "resend", "~> 1.0"
