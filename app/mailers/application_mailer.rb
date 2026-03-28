@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "Power Dev <newsletter@powerdev.io>"
+  default from: "Chris <chris@chrispower.dev>"
   layout "mailer"
 end
