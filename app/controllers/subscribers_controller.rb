@@ -8,6 +8,7 @@ class SubscribersController < ApplicationController
     else
       subscriber = Subscriber.new(email: email)
       if subscriber.save
+        NewsletterMailer.welcome(subscriber).deliver_later
         respond_subscribed("You're subscribed! Thanks, nerd.")
       else
         respond_to do |format|

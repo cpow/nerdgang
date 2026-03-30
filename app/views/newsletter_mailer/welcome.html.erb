@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to NerdGang</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f4f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f4f5;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%;">
+          <!-- Header -->
+          <tr>
+            <td style="text-align: center; padding-bottom: 30px;">
+              <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #18181b;">NerdGang</h1>
+              <p style="margin: 8px 0 0 0; font-size: 14px; color: #71717a;">Developer Newsletter</p>
+            </td>
+          </tr>
+
+          <!-- Main Content -->
+          <tr>
+            <td style="background-color: #ffffff; border-radius: 8px; padding: 32px;">
+              <h2 style="margin: 0 0 8px 0; font-size: 28px; font-weight: 700; color: #18181b; line-height: 1.3;">
+                You're in. No turning back now.
+              </h2>
+              <p style="margin: 0 0 24px 0; font-size: 14px; color: #71717a;">
+                (Well, there's an unsubscribe link at the bottom. But let's not talk about that.)
+              </p>
+
+              <div style="font-size: 16px; line-height: 1.6; color: #3f3f46;">
+                <p style="margin: 0 0 16px 0;">
+                  Welcome to NerdGang — the dev newsletter considered "pretty good" by mass numbers of developers who could be doing literally anything else with their time.
+                </p>
+
+                <p style="margin: 0 0 16px 0;">
+                  Here's what you just signed up for:
+                </p>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 16px;">
+                  <tr>
+                    <td style="padding: 12px 16px; background-color: #fafafa; border-radius: 6px; border-left: 3px solid #18181b;">
+                      <p style="margin: 0 0 8px 0; font-weight: 600; color: #18181b;">Curated dev news</p>
+                      <p style="margin: 0; font-size: 14px; color: #52525b;">The best stuff from Reddit, Hacker News, Lobsters, and more — so you don't have to doomscroll those yourself. You're welcome.</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 16px;">
+                  <tr>
+                    <td style="padding: 12px 16px; background-color: #fafafa; border-radius: 6px; border-left: 3px solid #18181b;">
+                      <p style="margin: 0 0 8px 0; font-weight: 600; color: #18181b;">Actual commentary</p>
+                      <p style="margin: 0; font-size: 14px; color: #52525b;">Not just links. We have opinions. Some of them are even correct.</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom: 24px;">
+                  <tr>
+                    <td style="padding: 12px 16px; background-color: #fafafa; border-radius: 6px; border-left: 3px solid #18181b;">
+                      <p style="margin: 0 0 8px 0; font-weight: 600; color: #18181b;">Zero spam</p>
+                      <p style="margin: 0; font-size: 14px; color: #52525b;">We will never sell your email. Mostly because we don't know how, and also because it's wrong. But mainly because we don't know how.</p>
+                    </td>
+                  </tr>
+                </table>
+
+                <p style="margin: 0 0 16px 0;">
+                  Sit tight. The next issue will hit your inbox soon. In the meantime, feel free to tell your coworkers you read "a pretty underground newsletter" — we won't correct them.
+                </p>
+              </div>
+
+              <!-- CTA -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 32px;">
+                <tr>
+                  <td align="center" style="padding: 24px; background-color: #fafafa; border-radius: 8px;">
+                    <p style="margin: 0 0 16px 0; font-size: 16px; color: #3f3f46;">
+                      Check out our past issues while you wait
+                    </p>
+                    <a href="<%= newsletters_url %>" style="display: inline-block; padding: 12px 24px; background-color: #18181b; color: #ffffff; font-size: 14px; font-weight: 500; text-decoration: none; border-radius: 6px;">
+                      Browse the Archive
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 32px 20px; text-align: center;">
+              <p style="margin: 0 0 8px 0; font-size: 13px; color: #71717a;">
+                You received this email because you just subscribed to NerdGang. Good call.
+              </p>
+              <p style="margin: 0; font-size: 13px; color: #71717a;">
+                <a href="<%= @unsubscribe_url %>" style="color: #71717a; text-decoration: underline;">Unsubscribe</a> (but why would you?)
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

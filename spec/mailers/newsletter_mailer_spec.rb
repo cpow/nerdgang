@@ -14,7 +14,7 @@ RSpec.describe NewsletterMailer, type: :mailer do
     it "renders the headers" do
       expect(mail.subject).to eq("Weekly Digest #42")
       expect(mail.to).to eq([subscriber.email])
-      expect(mail.from).to eq(["newsletter@powerdev.io"])
+      expect(mail.from).to eq(["chris@chrispower.dev"])
     end
 
     it "renders the HTML body" do
@@ -46,6 +46,33 @@ RSpec.describe NewsletterMailer, type: :mailer do
       new_mail = described_class.weekly_digest(subscriber, newsletter)
       expect(new_mail.html_part.body.to_s).to include("This week in tech...")
       expect(new_mail.text_part.body.to_s).to include("This week in tech...")
+    end
+  end
+
+  describe "#welcome" do
+    let(:subscriber) { create(:subscriber) }
+    let(:mail) { described_class.welcome(subscriber) }
+
+    it "renders the headers" do
+      expect(mail.subject).to include("Welcome to NerdGang")
+      expect(mail.to).to eq([subscriber.email])
+      expect(mail.from).to eq(["chris@chrispower.dev"])
+    end
+
+    it "renders the HTML body" do
+      expect(mail.html_part.body.to_s).to include("You're in")
+      expect(mail.html_part.body.to_s).to include("pretty good")
+      expect(mail.html_part.body.to_s).to include("Browse the Archive")
+    end
+
+    it "renders the plain text body" do
+      expect(mail.text_part.body.to_s).to include("You're in")
+      expect(mail.text_part.body.to_s).to include("pretty good")
+    end
+
+    it "includes the unsubscribe link" do
+      expect(mail.html_part.body.to_s).to include(subscriber.unsubscribe_token)
+      expect(mail.text_part.body.to_s).to include(subscriber.unsubscribe_token)
     end
   end
 end
