@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   # Unsubscribe
   get "unsubscribe/:token", to: "unsubscribes#show", as: :unsubscribe
 
+  # Webhooks
+  post "webhooks/resend", to: "webhooks/resend#create"
+
   # Health check
   get "up" => "rails/health#show", :as => :rails_health_check
 
