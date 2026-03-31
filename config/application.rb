@@ -23,5 +23,8 @@ module PowerDev
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    require_relative "../app/middleware/bot_blocker"
+    config.middleware.insert_before 0, BotBlocker
   end
 end
