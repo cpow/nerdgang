@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_15_205558) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_31_174136) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -102,6 +102,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_15_205558) do
     t.datetime "created_at", null: false
     t.datetime "discarded_at"
     t.string "email", null: false
+    t.string "unsubscribe_reason"
     t.string "unsubscribe_token"
     t.datetime "unsubscribed_at"
     t.datetime "updated_at", null: false

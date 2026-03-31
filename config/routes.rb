@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :subscribers, only: [:index]
+    resources :subscribers, only: [:index, :show]
   end
 
   # Public newsletters

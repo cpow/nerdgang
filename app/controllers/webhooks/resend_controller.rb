@@ -32,7 +32,7 @@ module Webhooks
 
     def handle_bounce(data)
       subscriber = Subscriber.find_by(email: data["to"]&.first)
-      subscriber&.unsubscribe!
+      subscriber&.unsubscribe!(reason: "email_bounced")
     end
   end
 end

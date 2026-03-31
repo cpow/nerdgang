@@ -20,12 +20,12 @@ class Subscriber < ApplicationRecord
     unsubscribed_at.present?
   end
 
-  def unsubscribe!
-    update!(unsubscribed_at: Time.current)
+  def unsubscribe!(reason: nil)
+    update!(unsubscribed_at: Time.current, unsubscribe_reason: reason)
   end
 
   def resubscribe!
-    update!(unsubscribed_at: nil)
+    update!(unsubscribed_at: nil, unsubscribe_reason: nil)
   end
 
   private

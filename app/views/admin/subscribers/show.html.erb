@@ -1,0 +1,60 @@
+<% content_for(:title) { "#{@subscriber.email} - Subscribers - Admin" } %>
+
+<div class="mb-6">
+  <%= link_to "&larr; Back to Subscribers".html_safe, admin_subscribers_path, class: "text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200" %>
+</div>
+
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded p-6">
+  <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4"><%= @subscriber.email %></h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+    <div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">Status</div>
+      <div class="font-medium">
+        <% if @subscriber.subscribed? %>
+          <span class="text-green-600 dark:text-green-400">Active</span>
+        <% else %>
+          <span class="text-red-600 dark:text-red-400">Unsubscribed</span>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-500 dark:text-gray-400">Subscribed On</div>
+      <div class="font-medium text-gray-900 dark:text-white"><%= @subscriber.created_at.strftime("%B %d, %Y at %H:%M") %></div>
+    </div>
+    <% if @subscriber.unsubscribed? %>
+      <div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">Unsubscribed On</div>
+        <div class="font-medium text-gray-900 dark:text-white"><%= @subscriber.unsubscribed_at.strftime("%B %d, %Y at %H:%M") %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @subscriber.unsubscribed? %>
+    <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+      <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Unsubscribe Reason</div>
+      <div class="font-medium text-gray-900 dark:text-white">
+        <% case @subscriber.unsubscribe_reason %>
+        <% when "email_bounced" %>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200">
+            Email Bounced
+          </span>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            This subscriber was automatically unsubscribed because their email address bounced. Detected via Resend webhook.
+          </p>
+        <% when "user_unsubscribed" %>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+            User Unsubscribed
+          </span>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            This subscriber opted out via the unsubscribe link in their email.
+          </p>
+        <% else %>
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+            Unknown
+          </span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

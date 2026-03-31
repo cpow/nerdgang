@@ -9,7 +9,7 @@ class UnsubscribesController < ApplicationController
     elsif @subscriber.unsubscribed?
       render :already_unsubscribed
     else
-      @subscriber.unsubscribe!
+      @subscriber.unsubscribe!(reason: "user_unsubscribed")
       render :success
     end
   end
