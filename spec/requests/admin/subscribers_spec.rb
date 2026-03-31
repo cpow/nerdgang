@@ -100,6 +100,15 @@ RSpec.describe "Admin::Subscribers", type: :request do
       expect(response.body).to include("opted out via the unsubscribe link")
     end
 
+    it "shows spam_complaint reason" do
+      subscriber = create(:subscriber, unsubscribed_at: 1.day.ago, unsubscribe_reason: "spam_complaint")
+
+      get admin_subscriber_path(subscriber), headers: headers
+
+      expect(response.body).to include("Spam Complaint")
+      expect(response.body).to include("marked the email as spam")
+    end
+
     it "shows email_bounced reason" do
       subscriber = create(:subscriber, unsubscribed_at: 1.day.ago, unsubscribe_reason: "email_bounced")
 

@@ -22,6 +22,41 @@ RSpec.describe "Webhooks::Resend", type: :request do
         expect(subscriber.reload).to be_unsubscribed
       end
 
+      it "sets the unsubscribe reason to email_bounced" do
+        post "/webhooks/resend", params: payload, headers: webhook_headers
+
+        expect(subscriber.reload.unsubscribe_reason).to eq("email_bounced")
+      end
+
+      it "returns ok" do
+        post "/webhooks/resend", params: payload, headers: webhook_headers
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context "with email.complained event" do
+      let!(:subscriber) { create(:subscriber) }
+
+      let(:payload) do
+        {
+          type: "email.complained",
+          data: {to: [subscriber.email]}
+        }.to_json
+      end
+
+      it "unsubscribes the subscriber" do
+        post "/webhooks/resend", params: payload, headers: webhook_headers
+
+        expect(subscriber.reload).to be_unsubscribed
+      end
+
+      it "sets the unsubscribe reason to spam_complaint" do
+        post "/webhooks/resend", params: payload, headers: webhook_headers
+
+        expect(subscriber.reload.unsubscribe_reason).to eq("spam_complaint")
+      end
+
       it "returns ok" do
         post "/webhooks/resend", params: payload, headers: webhook_headers
 

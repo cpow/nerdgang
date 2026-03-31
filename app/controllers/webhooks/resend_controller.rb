@@ -9,6 +9,8 @@ module Webhooks
       case payload["type"]
       when "email.bounced"
         handle_bounce(payload["data"])
+      when "email.complained"
+        handle_complaint(payload["data"])
       end
 
       head :ok
@@ -33,6 +35,11 @@ module Webhooks
     def handle_bounce(data)
       subscriber = Subscriber.find_by(email: data["to"]&.first)
       subscriber&.unsubscribe!(reason: "email_bounced")
+    end
+
+    def handle_complaint(data)
+      subscriber = Subscriber.find_by(email: data["to"]&.first)
+      subscriber&.unsubscribe!(reason: "spam_complaint")
     end
   end
 end
