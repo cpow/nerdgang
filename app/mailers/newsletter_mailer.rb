@@ -4,6 +4,13 @@ class NewsletterMailer < ApplicationMailer
     @newsletter = newsletter
     @unsubscribe_url = unsubscribe_url(token: @subscriber.unsubscribe_token)
 
+    if @newsletter.pdf_attachment.attached?
+      attachments[@newsletter.pdf_attachment.filename.to_s] = {
+        mime_type: @newsletter.pdf_attachment.content_type,
+        content: @newsletter.pdf_attachment.download
+      }
+    end
+
     mail(
       to: @subscriber.email,
       subject: @newsletter.title

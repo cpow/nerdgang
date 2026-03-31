@@ -115,6 +115,45 @@ RSpec.describe Newsletter, type: :model do
     end
   end
 
+  describe "pdf_attachment" do
+    it "can have a PDF attached" do
+      newsletter = create(:newsletter, :with_pdf)
+      expect(newsletter.pdf_attachment).to be_attached
+    end
+
+    it "is valid with a PDF file" do
+      newsletter = build(:newsletter)
+      newsletter.pdf_attachment.attach(
+        io: StringIO.new("fake pdf"),
+        filename: "test.pdf",
+        content_type: "application/pdf"
+      )
+      expect(newsletter).to be_valid
+    end
+
+    it "is invalid with a non-PDF file" do
+      newsletter = build(:newsletter)
+      newsletter.pdf_attachment.attach(
+        io: StringIO.new("fake image"),
+        filename: "test.jpg",
+        content_type: "image/jpeg"
+      )
+      expect(newsletter).not_to be_valid
+      expect(newsletter.errors[:pdf_attachment]).to include("must be a PDF file")
+    end
+
+    it "is invalid when file exceeds 10MB" do
+      newsletter = build(:newsletter)
+      newsletter.pdf_attachment.attach(
+        io: StringIO.new("x" * (11.megabytes)),
+        filename: "large.pdf",
+        content_type: "application/pdf"
+      )
+      expect(newsletter).not_to be_valid
+      expect(newsletter.errors[:pdf_attachment]).to include("must be less than 10MB")
+    end
+  end
+
   describe "cover_image" do
     it "can have a cover image attached" do
       newsletter = create(:newsletter)

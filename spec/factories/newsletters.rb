@@ -21,6 +21,16 @@ FactoryBot.define do
       discarded_at { 1.hour.ago }
     end
 
+    trait :with_pdf do
+      after(:build) do |newsletter|
+        newsletter.pdf_attachment.attach(
+          io: StringIO.new("fake pdf content"),
+          filename: "newsletter.pdf",
+          content_type: "application/pdf"
+        )
+      end
+    end
+
     trait :sent do
       published_at { 2.days.ago }
       sent_at { 1.day.ago }

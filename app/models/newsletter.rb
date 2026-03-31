@@ -4,12 +4,15 @@ class Newsletter < ApplicationRecord
 
   has_rich_text :blurb
   has_one_attached :cover_image
+  has_one_attached :pdf_attachment
   has_many :newsletter_articles, -> { order(position: :asc) }, dependent: :destroy
   has_many :articles, through: :newsletter_articles
 
   validates :title, presence: true
   validates :slug, presence: true, uniqueness: true,
     format: {with: /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/, message: "must be lowercase with hyphens only"}
+
+  validate :acceptable_pdf_attachment
 
   before_validation :generate_slug, on: :create
 
@@ -34,6 +37,16 @@ class Newsletter < ApplicationRecord
   end
 
   private
+
+  def acceptable_pdf_attachment
+    return unless pdf_attachment.attached?
+    unless pdf_attachment.content_type == "application/pdf"
+      errors.add(:pdf_attachment, "must be a PDF file")
+    end
+    if pdf_attachment.byte_size > 10.megabytes
+      errors.add(:pdf_attachment, "must be less than 10MB")
+    end
+  end
 
   def generate_slug
     return if slug.present?

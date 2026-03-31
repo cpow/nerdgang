@@ -39,6 +39,22 @@ RSpec.describe NewsletterMailer, type: :mailer do
       expect(mail.html_part.body.to_s).to include("50 comments")
     end
 
+    context "with a PDF attachment" do
+      let(:newsletter) { create(:newsletter, :published, :with_pdf, title: "Weekly Digest #42") }
+
+      it "includes the PDF as an email attachment" do
+        expect(mail.attachments.count).to eq(1)
+        expect(mail.attachments.first.filename).to eq("newsletter.pdf")
+        expect(mail.attachments.first.mime_type).to eq("application/pdf")
+      end
+    end
+
+    context "without a PDF attachment" do
+      it "has no attachments" do
+        expect(mail.attachments).to be_empty
+      end
+    end
+
     it "includes the newsletter blurb when present" do
       newsletter.blurb = "This week in tech..."
       newsletter.save!

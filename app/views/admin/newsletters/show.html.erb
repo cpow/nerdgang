@@ -62,6 +62,24 @@
   </div>
 <% end %>
 
+<!-- PDF Attachment -->
+<% if @newsletter.pdf_attachment.attached? %>
+  <div class="mb-6 bg-white dark:bg-gray-800 p-6 rounded border border-gray-200 dark:border-gray-700">
+    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">PDF Attachment</h3>
+    <div class="flex items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+      </svg>
+      <div>
+        <p class="text-sm font-medium text-gray-900 dark:text-white"><%= @newsletter.pdf_attachment.filename %></p>
+        <p class="text-xs text-gray-500 dark:text-gray-400"><%= number_to_human_size(@newsletter.pdf_attachment.byte_size) %></p>
+      </div>
+      <%= link_to "Download", rails_blob_path(@newsletter.pdf_attachment, disposition: "attachment"),
+          class: "ml-auto text-sm text-blue-600 dark:text-blue-400 hover:underline" %>
+    </div>
+  </div>
+<% end %>
+
 <!-- Articles -->
 <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded">
   <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
