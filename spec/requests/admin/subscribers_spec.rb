@@ -125,5 +125,45 @@ RSpec.describe "Admin::Subscribers", type: :request do
 
       expect(response.body).to include("Unknown")
     end
+
+    it "shows delete button" do
+      subscriber = create(:subscriber)
+
+      get admin_subscriber_path(subscriber), headers: headers
+
+      expect(response.body).to include("Delete Subscriber")
+    end
+  end
+
+  describe "DELETE /admin/subscribers/:id" do
+    it "requires authentication" do
+      subscriber = create(:subscriber)
+      delete admin_subscriber_path(subscriber)
+      expect(response).to have_http_status(:unauthorized)
+    end
+
+    it "soft deletes the subscriber" do
+      subscriber = create(:subscriber)
+
+      delete admin_subscriber_path(subscriber), headers: headers
+
+      expect(subscriber.reload.discarded_at).to be_present
+    end
+
+    it "redirects to subscribers index" do
+      subscriber = create(:subscriber)
+
+      delete admin_subscriber_path(subscriber), headers: headers
+
+      expect(response).to redirect_to(admin_subscribers_path)
+    end
+
+    it "sets a success notice" do
+      subscriber = create(:subscriber)
+
+      delete admin_subscriber_path(subscriber), headers: headers
+
+      expect(flash[:notice]).to eq("Subscriber was successfully deleted.")
+    end
   end
 end

@@ -65,3 +65,12 @@
     </div>
   <% end %>
 </div>
+
+<!-- Danger Zone -->
+<div class="mt-6 bg-white dark:bg-gray-800 p-4 rounded border border-red-200 dark:border-red-800">
+  <h4 class="text-sm font-medium text-red-800 dark:text-red-300 mb-2">Danger Zone</h4>
+  <%= button_to "Delete Subscriber", admin_subscriber_path(@subscriber),
+      method: :delete,
+      class: "text-sm text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300",
+      data: { turbo_confirm: "Are you sure you want to delete this subscriber?" } %>
+</div>
